@@ -12,9 +12,7 @@
             "breakOnError": true,
             "enableLongRunningSqlStatements": true,
             "enableSqlInformationDebugger": true,
-            "schemaUpdateMode": "ForceSync",
-            "launchBrowser": true,
-
+            "schemaUpdateMode": "ForceSync"
         },
         {
             "type": "al",

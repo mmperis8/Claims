@@ -28,18 +28,24 @@ codeunit 50322 "Claims Management"
 
         SalesCrMemoHeader."Applied warranty to Doc. No." := Rec."No.";
         SalesCrMemoHeader.Status := SalesCrMemoHeader.Status::Open;
+        SalesCrMemoHeader.Operator := Rec.Operator;
+        SalesCrMemoHeader."Repair Responsible" := Rec."Repair Responsible";
+        SalesCrMemoHeader."Plaque Code" := Rec."Plaque Code";
+        SalesCrMemoHeader."Vehicle Kms." := Rec."Vehicle Kms.";
         SalesCrMemoHeader.Modify();
 
         CreateSalesCrMemoLine(Rec, SalesCrMemoHeader, AmountToCrMemo, Account);
-        CreateClaimRecord(Rec, SalesCrMemoHeader, Account);
+        CreateClaimRecord(Rec, Account);
     end;
 
     local procedure CreateSalesCrMemoLine(Rec: Record "Sales Header"; SalesCrMemoHeader: Record "Sales Header"; AmountToCrMemo: Decimal; Account: Code[20])
     var
         SalesCrMemoLine: Record "Sales Line";
         SalesLine: Record "Sales Line";
+        LineNo: Integer;
     begin
 
+        LineNo := 10000;
         SalesLine.SetRange("Document No.", Rec."No.");
         if not SalesLine.FindSet() then
             Error('');
@@ -48,19 +54,23 @@ codeunit 50322 "Claims Management"
             SalesCrMemoLine.Init();
             SalesCrMemoLine."Document No." := SalesCrMemoHeader."No.";
             SalesCrMemoLine."Document Type" := SalesCrMemoHeader."Document Type";
-            SalesCrMemoLine.Insert(true);
-
+            SalesCrMemoLine."Line No." := LineNo;
             SalesCrMemoLine.Type := SalesCrMemoLine.Type::"G/L Account";
-            if SalesLine.Count = 1 then
-                SalesCrMemoLine."No." := Account;
-            SalesCrMemoLine.Validate("Line Amount", AmountToCrMemo);
-            SalesCrMemoLine.Validate(Quantity, 1);
-            SalesCrMemoLine.Modify();
+            SalesCrMemoLine.VALIDATE("Line Discount %", 0);
+            if SalesLine.Count = 1 then begin
+                SalesCrMemoLine.Validate("No.", Account);
+                SalesCrMemoLine.Validate(Quantity, 1);
+                SalesCrMemoLine.Validate("Unit Price", AmountToCrMemo);
+            end;
+            SalesCrMemoLine."Applied warranty to Doc. No." := SalesLine."Document No.";
+            SalesCrMemoLine."Applied warranty to Line No." := SalesLine."Line No.";
+            SalesCrMemoLine.Insert(true);
+            LineNo += 10000;
         until SalesLine.Next() = 0;
 
     end;
 
-    local procedure CreateClaimRecord(Rec: Record "Sales Header"; SalesCrMemoHeader: Record "Sales Header"; Account: Code[20])
+    local procedure CreateClaimRecord(Rec: Record "Sales Header"; Account: Code[20])
     var
         Claims: Record Claims;
         SalesLine: Record "Sales Line";
@@ -75,16 +85,17 @@ codeunit 50322 "Claims Management"
             if not GLAccount."Claiming Account" then
                 exit;
 
-        repeat
+        if SalesLine.Count = 1 then begin
             Claims.Init();
-            Claims."Source No." := SalesCrMemoHeader."No.";
+            Claims."Source No." := Rec."No.";
+            Claims."Source Line No." := SalesLine."Line No.";
             Claims."Customer No." := Rec."Sell-to Customer No.";
             Claims.Insert();
             Claims."Wheel Item No." := SalesLine."No.";
             Claims."Plaque Code" := Rec."Plaque Code";
             Claims."Vehicle Kms." := Rec."Vehicle Kms.";
             Claims.Modify();
-        until SalesLine.Next() = 0;
+        end;
 
     end;
 

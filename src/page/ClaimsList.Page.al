@@ -19,16 +19,29 @@ page 50327 "Claims List"
                 field("Customer No."; "Customer No.")
                 {
                     ApplicationArea = All;
+                    NotBlank = true;
                 }
-                field("Customer Liquidation"; "Customer Liquidation")
+                field("Wheel Item No."; "Wheel Item No.")
                 {
                     ApplicationArea = All;
+                    NotBlank = true;
                 }
-                field("Vehicle Kms."; "Vehicle Kms.")
+                field("Plaque Code"; "Plaque Code")
                 {
                     ApplicationArea = All;
+                    NotBlank = true;
+                }
+                field("Reclamation date"; "Reclamation date")
+                {
+                    ApplicationArea = All;
+                    NotBlank = true;
                 }
                 field("M.E"; "M.E")
+                {
+                    ApplicationArea = All;
+                    NotBlank = true;
+                }
+                field("Vehicle Kms."; "Vehicle Kms.")
                 {
                     ApplicationArea = All;
                 }
@@ -39,20 +52,13 @@ page 50327 "Claims List"
                 field("Mm. Substract"; "Mm. Substract")
                 {
                     ApplicationArea = All;
-                }
-                field("Plaque Code"; "Plaque Code")
-                {
-                    ApplicationArea = All;
-                }
-                field("Reclamation date"; "Reclamation date")
-                {
-                    ApplicationArea = All;
+                    NotBlank = true;
                 }
                 field("Source No."; "Source No.")
                 {
                     ApplicationArea = All;
                 }
-                field("Vendor Liquidation"; "Vendor Liquidation")
+                field("Source Line No."; "Source Line No.")
                 {
                     ApplicationArea = All;
                 }
@@ -60,19 +66,15 @@ page 50327 "Claims List"
                 {
                     ApplicationArea = All;
                 }
-                field("Wheel Item No."; "Wheel Item No.")
+                field("Customer Liquidation"; "Customer Liquidation")
+                {
+                    ApplicationArea = All;
+                }
+                field("Vendor Liquidation"; "Vendor Liquidation")
                 {
                     ApplicationArea = All;
                 }
             }
-        }
-    }
-
-    actions
-    {
-        area(Processing)
-        {
-
         }
     }
 }

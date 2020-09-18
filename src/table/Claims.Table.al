@@ -15,37 +15,52 @@ table 50320 "Claims"
         {
             Caption = 'Source No.', comment = 'ESP="Documento origen"';
             DataClassification = CustomerContent;
-            NotBlank = true;
+
+            trigger OnValidate()
+            var
+                Claims: Record Claims;
+                SalesHeader: Record "Sales Header";
+                NoSalesHdErr: Label 'There is no sales order with the specified number', comment = 'ESP="No exite ningún pedido venta con el número especificado"';
+            begin
+                if not SalesHeader.Get(SalesHeader."Document Type"::Order, "Source No.") then
+                    Error(NoSalesHdErr);
+
+                Claims.SetRange("Source No.", SalesHeader."No.");
+                if Claims.FindLast() then
+                    "Source Line No." := 10000 + Claims."Source Line No."
+                else
+                    "Source Line No." := 10000;
+            end;
+        }
+        field(6; "Source Line No."; Integer)
+        {
+            Caption = 'Source Line No.', comment = 'ESP="Línea documento origen"';
+            DataClassification = CustomerContent;
         }
         field(10; "Customer No."; Text[30])
         {
             Caption = 'Customer No.', comment = 'ESP="Nº Cliente"';
             DataClassification = CustomerContent;
-            NotBlank = true;
         }
         field(15; "Wheel Item No."; Code[20])
         {
             Caption = 'Wheel Item No.', comment = 'ESP="Nº producto rueda"';
             DataClassification = CustomerContent;
-            NotBlank = true;
         }
         field(20; "Plaque Code"; Code[20])
         {
             Caption = 'Plaque Code', comment = 'ESP="Cód. Matrícula"';
             DataClassification = CustomerContent;
-            NotBlank = true;
         }
         field(25; "Reclamation date"; Date)
         {
             Caption = 'Reclamation date', comment = 'ESP="Fecha de reclamación"';
             DataClassification = Customercontent;
-            NotBlank = true;
         }
         field(30; "M.E"; Code[50])
         {
             Caption = 'M.E', comment = 'ESP="M.E"';
             DataClassification = CustomerContent;
-            NotBlank = true;
         }
         field(35; "Vehicle Kms."; Integer)
         {
@@ -53,19 +68,16 @@ table 50320 "Claims"
             DataClassification = CustomerContent;
             MinValue = 0;
         }
-
         field(40; "Mm. Start"; Decimal)
         {
             Caption = 'Mm. Start', comment = 'ESP="Mm. Inicio"';
             DataClassification = CustomerContent;
             MinValue = 0;
         }
-
         field(45; "Mm. Substract"; Decimal)
         {
             Caption = 'Mm. Substract', comment = 'ESP="Mm. Resto"';
             DataClassification = CustomerContent;
-            NotBlank = true;
         }
         field(50; "Vendor Observations"; Text[100])
         {
@@ -75,12 +87,12 @@ table 50320 "Claims"
         field(55; "Customer Liquidation"; Boolean)
         {
             Caption = 'Customer Liquidation', comment = 'ESP="Liquidación Cliente"';
-            DataClassification = ToBeClassified;
+            DataClassification = CustomerContent;
         }
         field(60; "Vendor Liquidation"; Boolean)
         {
             Caption = 'Vendor Liquidation', comment = 'ESP="Liquidación Proveedor"';
-            DataClassification = ToBeClassified;
+            DataClassification = CustomerContent;
         }
     }
 
@@ -103,7 +115,6 @@ table 50320 "Claims"
 
         if "Reclamation date" = 0D then
             "Reclamation date" := WorkDate();
-
     end;
 
     trigger OnModify()

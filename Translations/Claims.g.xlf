@@ -18,6 +18,16 @@
           <note from="Developer" annotates="general" priority="2">ESP="Documento origen"</note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Claims - Field Source No. - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 2860450491 - Field 1882905478 - Method 2126772001 - NamedType 3034666356" size-unit="char" translate="yes" xml:space="preserve">
+          <source>There is no sales order with the specified number</source>
+          <note from="Developer" annotates="general" priority="2">ESP="No exite ningún pedido venta con el número especificado"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Claims - Field Source No. - Method OnValidate - NamedType NoSalesHdErr</note>
+        </trans-unit>
+        <trans-unit id="Table 2860450491 - Field 312545736 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Source Line No.</source>
+          <note from="Developer" annotates="general" priority="2">ESP="Línea documento origen"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Claims - Field Source Line No. - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 2860450491 - Field 4190130733 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Customer No.</source>
           <note from="Developer" annotates="general" priority="2">ESP="Nº Cliente"</note>

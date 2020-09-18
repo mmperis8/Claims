@@ -38,6 +38,20 @@ codeunit 50320 "Purchase Management"
             Claims.Modify();
         end;
 
+        /* --REPLICAR HECHO EN VENTAS--
+        if SalesCrMemoLine.Findset() then
+            repeat
+                Clear(Claims);
+                Claims.SetRange("Source No.", SalesCrMemoLine."Applied warranty to Doc. No.");
+                Claims.SetRange("Source Line No.", SalesCrMemoLine."Applied warranty to Line No.");
+                if Claims.FindFirst() then
+                    if (Claims."Customer No." = '') Or (Claims."Wheel Item No." = '') Or
+                    (Claims."Plaque Code" = '') Or (Claims."Reclamation date" = 0D) Or
+                    (Claims."M.E" = '') Or (Claims."Mm. Substract" = 0) then
+                        Error(NoReclamationErr);
+            until SalesCrMemoLine.Next() = 0;        
+        */
+
     end;
 
     var
