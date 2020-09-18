@@ -1,0 +1,11 @@
+#ignore folder
+.alcache/
+.alpackages/
+.altemplates/
+.vscode/rad.json
+
+#ignore .app file
+*.app
+
+#ignore .log file
+*.log

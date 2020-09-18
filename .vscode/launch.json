@@ -1,0 +1,48 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "al",
+            "request": "launch",
+            "name": "DEV",
+            "server": "https://bcdev.rodi.es",
+            "serverInstance": "RodiBCDev",
+            "port": 32849,
+            "authentication": "UserPassword",
+            "breakOnError": true,
+            "enableLongRunningSqlStatements": true,
+            "enableSqlInformationDebugger": true,
+            "schemaUpdateMode": "ForceSync",
+            "launchBrowser": true,
+
+        },
+        {
+            "type": "al",
+            "request": "launch",
+            "name": "PRE",
+            "server": "https://bcpre.rodi.es",
+            "serverInstance": "RodiBCPre",
+            "authentication": "UserPassword",
+            "breakOnError": true,
+            "launchBrowser": true,
+            "enableLongRunningSqlStatements": true,
+            "enableSqlInformationDebugger": true,
+            "port": 32749,
+            "schemaUpdateMode": "Synchronize"
+        }/*,
+        {
+            "type": "al",
+            "request": "launch",
+            "name": "REAL",
+            "server": "https://bc.rodi.es",
+            "serverInstance": "RodiBC",
+            "port": 32949,
+            "authentication": "UserPassword",
+            "breakOnError": true,
+            "enableLongRunningSqlStatements": true,
+            "enableSqlInformationDebugger": true,
+            "schemaUpdateMode": "Synchronize",
+            "launchBrowser": true,
+        }*/
+    ]
+}

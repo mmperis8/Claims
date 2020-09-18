@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-US" target-language="es-ES" original="Claims">
+    <body>
+      <group id="body">
+        <trans-unit id="Table 2860450491 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Claims</source>
+          <note from="Developer" annotates="general" priority="2">ESP="Reclamaciones"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Claims - Property Caption</note>
+          <target>Reclamaciones</target>
+        </trans-unit>
+        <trans-unit id="Table 2860450491 - Field 4200184881 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>No.</source>
+          <note from="Developer" annotates="general" priority="2">ESP="Nº"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Claims - Field No. - Property Caption</note>
+          <target>Nº</target>
+        </trans-unit>
+        <trans-unit id="Table 2860450491 - Field 1882905478 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Source No.</source>
+          <note from="Developer" annotates="general" priority="2">ESP="Documento origen"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Claims - Field Source No. - Property Caption</note>
+          <target>Documento origen</target>
+        </trans-unit>
+        <trans-unit id="Table 2860450491 - Field 4190130733 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Customer No.</source>
+          <note from="Developer" annotates="general" priority="2">ESP="Nº Cliente"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Claims - Field Customer No. - Property Caption</note>
+          <target>Nº Cliente</target>
+        </trans-unit>
+        <trans-unit id="Table 2860450491 - Field 4073245755 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Wheel Item No.</source>
+          <note from="Developer" annotates="general" priority="2">ESP="Nº producto rueda"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Claims - Field Wheel Item No. - Property Caption</note>
+          <target>Nº producto rueda</target>
+        </trans-unit>
+        <trans-unit id="Table 2860450491 - Field 3134442683 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Plaque Code</source>
+          <note from="Developer" annotates="general" priority="2">ESP="Cód. Matrícula"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Claims - Field Plaque Code - Property Caption</note>
+          <target>Cód. Matrícula</target>
+        </trans-unit>
+        <trans-unit id="Table 2860450491 - Field 1175550799 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Reclamation date</source>
+          <note from="Developer" annotates="general" priority="2">ESP="Fecha de reclamación"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Claims - Field Reclamation date - Property Caption</note>
+          <target>Fecha de reclamación</target>
+        </trans-unit>
+        <trans-unit id="Table 2860450491 - Field 1367657418 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>M.E</source>
+          <note from="Developer" annotates="general" priority="2">ESP="M.E"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Claims - Field M.E - Property Caption</note>
+          <target>M.E</target>
+        </trans-unit>
+        <trans-unit id="Table 2860450491 - Field 783661101 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Vehicle Kms.</source>
+          <note from="Developer" annotates="general" priority="2">ESP="Km. Uso"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Claims - Field Vehicle Kms. - Property Caption</note>
+          <target>Km. Uso</target>
+        </trans-unit>
+        <trans-unit id="Table 2860450491 - Field 2839621578 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Mm. Start</source>
+          <note from="Developer" annotates="general" priority="2">ESP="Mm. Inicio"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Claims - Field Mm. Start - Property Caption</note>
+          <target>Mm. Inicio</target>
+        </trans-unit>
+        <trans-unit id="Table 2860450491 - Field 3094268923 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Mm. Substract</source>
+          <note from="Developer" annotates="general" priority="2">ESP="Mm. Resto"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Claims - Field Mm. Substract - Property Caption</note>
+          <target>Mm. Resto</target>
+        </trans-unit>
+        <trans-unit id="Table 2860450491 - Field 3476334087 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Vendor Observations</source>
+          <note from="Developer" annotates="general" priority="2">ESP="Observaciones Proveedor"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Claims - Field Vendor Observations - Property Caption</note>
+          <target>Observaciones Proveedor</target>
+        </trans-unit>
+        <trans-unit id="Table 2860450491 - Field 1150882463 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Customer Liquidation</source>
+          <note from="Developer" annotates="general" priority="2">ESP="Liquidación Cliente"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Claims - Field Customer Liquidation - Property Caption</note>
+          <target>Liquidación Cliente</target>
+        </trans-unit>
+        <trans-unit id="Table 2860450491 - Field 3420761511 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Vendor Liquidation</source>
+          <note from="Developer" annotates="general" priority="2">ESP="Liquidación Proveedor"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Claims - Field Vendor Liquidation - Property Caption</note>
+          <target>Liquidación Proveedor</target>
+        </trans-unit>
+        <trans-unit id="Codeunit 3442031084 - NamedType 1389818255" size-unit="char" translate="yes" xml:space="preserve">
+          <source>You must enter the information about the claim, Line button-&gt;Claims and fill in the fields indicated in red</source>
+          <note from="Developer" annotates="general" priority="2">ESP="Debe introducir la informacion sobre la reclamación.Boton Linea-&gt;Reclamaciones y rellenar obligatoriamente los campos indicados en color rojo"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Purchase Management - NamedType NoReclamationErr</note>
+          <target>Debe introducir la informacion sobre la reclamación.Boton Linea-&gt;Reclamaciones y rellenar obligatoriamente los campos indicados en color rojo</target>
+        </trans-unit>
+        <trans-unit id="Codeunit 494194381 - NamedType 1389818255" size-unit="char" translate="yes" xml:space="preserve">
+          <source>You must enter the information about the claim, Line button-&gt;Claims and fill in the fields indicated in red</source>
+          <note from="Developer" annotates="general" priority="2">ESP="Debe introducir la informacion sobre la reclamación.Boton Linea-&gt;Reclamaciones y rellenar obligatoriamente los campos indicados en color rojo"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Sales Management - NamedType NoReclamationErr</note>
+          <target>Debe introducir la informacion sobre la reclamación.Boton Linea-&gt;Reclamaciones y rellenar obligatoriamente los campos indicados en color rojo</target>
+        </trans-unit>
+        <trans-unit id="Page 3463626789 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Claims List</source>
+          <note from="Developer" annotates="general" priority="2">ESP="Lista de reclamaciones"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Claims List - Property Caption</note>
+          <target>Lista de reclamaciones</target>
+        </trans-unit>
+        <trans-unit id="Page 3155018263 - Property 2019332006" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Process</source>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Create Claim Page - Property PromotedActionCategories</note>
+        </trans-unit>
+        <trans-unit id="Page 3155018263 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Create Claim</source>
+          <note from="Developer" annotates="general" priority="2">ESP="Creación de reclamaciones",PTG="Criação de reivindicações"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Create Claim Page - Property Caption</note>
+          <target>Creación de reclamaciones</target>
+        </trans-unit>
+        <trans-unit id="Page 3155018263 - Control 4200184881 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>O.R. No.</source>
+          <note from="Developer" annotates="general" priority="2">ESP="Nº O.R."</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Create Claim Page - Control No. - Property Caption</note>
+          <target>Nº O.R.</target>
+        </trans-unit>
+        <trans-unit id="Page 3155018263 - Control 1267408499 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Account</source>
+          <note from="Developer" annotates="general" priority="2">ESP="Cuenta"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Create Claim Page - Control Account - Property Caption</note>
+          <target>Cuenta</target>
+        </trans-unit>
+        <trans-unit id="Page 3155018263 - Control 1549872688 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Amount</source>
+          <note from="Developer" annotates="general" priority="2">ESP="Importe"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Create Claim Page - Control AmountToCrMemo - Property Caption</note>
+          <target>Importe</target>
+        </trans-unit>
+        <trans-unit id="Page 3155018263 - Action 464469542 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Cancel claim</source>
+          <note from="Developer" annotates="general" priority="2">ESP="Anular reclamación",PTG=""</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Create Claim Page - Action CancelWarranty - Property Caption</note>
+          <target>Anular reclamación</target>
+        </trans-unit>
+        <trans-unit id="Page 3155018263 - Action 4107779690 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Create Claim</source>
+          <note from="Developer" annotates="general" priority="2">ESP="Crear reclamación",PTG=""</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Create Claim Page - Action CreateClaim - Property Caption</note>
+          <target>Crear reclamación</target>
+        </trans-unit>
+        <trans-unit id="PageExtension 894292065 - Action 1229219799 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1673401186">
+          <source>Create claims</source>
+          <note from="Developer" annotates="general" priority="2">ESP="Crear reclamación",PTG=""</note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Sales Order Claims - Action CreateClaims - Property Caption</note>
+          <target>Crear reclamación</target>
+        </trans-unit>
+        <trans-unit id="TableExtension 3871246473 - Field 2411545837 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 4274826855">
+          <source>Claiming Account</source>
+          <note from="Developer" annotates="general" priority="2">ESP="Cuenta de reclamaciones"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension G/L Account Claim - Field Claiming Account - Property Caption</note>
+          <target>Cuenta de reclamaciones</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

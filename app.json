@@ -1,0 +1,52 @@
+{
+  "id": "5236756a-c9a1-4a83-aee1-8a2d137e9fce",
+  "name": "Claims",
+  "publisher": "Olivia Sistemas S.L.",
+  "version": "1.0.0.0",
+  "brief": "Claims for sales & purhcases",
+  "description": "Claims for sales & purhcases",
+  "privacyStatement": "",
+  "EULA": "",
+  "help": "",
+  "url": "",
+  "logo": "./src/images/logo.png",
+  "dependencies": [
+    {
+      "id": "63ca2fa4-4f03-4f2b-a480-172fef340d3f",
+      "publisher": "Microsoft",
+      "name": "System Application",
+      "version": "16.0.0.0"
+    },
+    {
+      "id": "437dbf0e-84ff-417a-965d-ed2bb9650972",
+      "publisher": "Microsoft",
+      "name": "Base Application",
+      "version": "16.0.0.0"
+    },
+    {
+      "id": "d3a06c12-c00b-4acd-9d07-37dc9fa5e59d",
+      "publisher": "RODI RMS",
+      "name": "ExtensionBase",
+      "version": "1.0.0.0"
+    },
+    {
+      "id": "b04152cd-13fc-4296-8538-3861b741ccea",
+      "publisher": "Olivia Sistemas S.L.",
+      "name": "SalesTyreInsurance",
+      "version": "1.0.0.0"
+    }
+  ],
+  "screenshots": [],
+  "platform": "16.0.0.0",
+  "idRanges": [
+    {
+      "from": 50320,
+      "to": 50339
+    }
+  ],
+  "features": ["TranslationFile"],
+  "contextSensitiveHelpUrl": "https://Guarantees.com/help/",
+  "showMyCode": true,
+  "runtime": "5.0",
+  "propagateDependencies": true
+}
