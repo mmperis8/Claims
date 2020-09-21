@@ -21,6 +21,18 @@
           <note from="Xliff Generator" annotates="general" priority="3">Table Claims - Field Source No. - Property Caption</note>
           <target>Documento origen</target>
         </trans-unit>
+        <trans-unit id="Table 2860450491 - Field 1882905478 - Method 2126772001 - NamedType 3034666356" size-unit="char" translate="yes" xml:space="preserve">
+          <source>There is no sales order with the specified number</source>
+          <note from="Developer" annotates="general" priority="2">ESP="No exite ningún pedido venta con el número especificado"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Claims - Field Source No. - Method OnValidate - NamedType NoSalesHdErr</note>
+          <target>No exite ningún pedido venta con el número especificado</target>
+        </trans-unit>
+        <trans-unit id="Table 2860450491 - Field 312545736 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Source Line No.</source>
+          <note from="Developer" annotates="general" priority="2">ESP="Línea documento origen"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Claims - Field Source Line No. - Property Caption</note>
+          <target>Línea documento origen</target>
+        </trans-unit>
         <trans-unit id="Table 2860450491 - Field 4190130733 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Customer No.</source>
           <note from="Developer" annotates="general" priority="2">ESP="Nº Cliente"</note>
@@ -93,11 +105,17 @@
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Purchase Management - NamedType NoReclamationErr</note>
           <target>Debe introducir la informacion sobre la reclamación.Boton Linea-&gt;Reclamaciones y rellenar obligatoriamente los campos indicados en color rojo</target>
         </trans-unit>
+        <trans-unit id="Codeunit 3442031084 - NamedType 1620546306" size-unit="char" translate="yes" xml:space="preserve">
+          <source>You must specifie a claim no. on line %1</source>
+          <note from="Developer" annotates="general" priority="2">ESP="Debe indicar el número de reclamación en la línea %1"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Purchase Management - NamedType NoClaimErr</note>
+          <target>Debe indicar el número de reclamación en la línea %1</target>
+        </trans-unit>
         <trans-unit id="Codeunit 494194381 - NamedType 1389818255" size-unit="char" translate="yes" xml:space="preserve">
-          <source>You must enter the information about the claim, Line button-&gt;Claims and fill in the fields indicated in red</source>
-          <note from="Developer" annotates="general" priority="2">ESP="Debe introducir la informacion sobre la reclamación.Boton Linea-&gt;Reclamaciones y rellenar obligatoriamente los campos indicados en color rojo"</note>
+          <source>You must enter the information about the claim</source>
+          <note from="Developer" annotates="general" priority="2">ESP="Debe introducir la informacion sobre la reclamación"</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Sales Management - NamedType NoReclamationErr</note>
-          <target>Debe introducir la informacion sobre la reclamación.Boton Linea-&gt;Reclamaciones y rellenar obligatoriamente los campos indicados en color rojo</target>
+          <target>Debe introducir la informacion sobre la reclamación</target>
         </trans-unit>
         <trans-unit id="Page 3463626789 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Claims List</source>
@@ -157,6 +175,12 @@
           <note from="Developer" annotates="general" priority="2">ESP="Cuenta de reclamaciones"</note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension G/L Account Claim - Field Claiming Account - Property Caption</note>
           <target>Cuenta de reclamaciones</target>
+        </trans-unit>
+        <trans-unit id="TableExtension 1906739281 - Field 2682141055 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1519909599">
+          <source>Claim No.</source>
+          <note from="Developer" annotates="general" priority="2">ESP="Nº Reclamación"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Purchase Line Claim - Field Claim No. - Property Caption</note>
+          <target>Nº Reclamación</target>
         </trans-unit>
       </group>
     </body>

@@ -98,7 +98,7 @@ table 50320 "Claims"
 
     keys
     {
-        key(No_PrimaryKey; "No.")
+        key(No_PrimaryKey; "No.", "Source No.", "Source Line No.")
         {
             Clustered = true;
         }
@@ -108,6 +108,8 @@ table 50320 "Claims"
     var
         Claims: Record Claims;
     begin
+
+        Clear(Claims);
         if Claims.FindLast() then
             "No." := Claims."No." + 1
         else
@@ -115,6 +117,7 @@ table 50320 "Claims"
 
         if "Reclamation date" = 0D then
             "Reclamation date" := WorkDate();
+
     end;
 
     trigger OnModify()

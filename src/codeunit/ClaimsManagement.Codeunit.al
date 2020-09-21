@@ -81,6 +81,9 @@ codeunit 50322 "Claims Management"
         if not SalesLine.FindSet() then
             Error('');
 
+        if Account = '' then
+            exit;
+
         if GLAccount.GET(Account) then
             if not GLAccount."Claiming Account" then
                 exit;
@@ -90,11 +93,11 @@ codeunit 50322 "Claims Management"
             Claims."Source No." := Rec."No.";
             Claims."Source Line No." := SalesLine."Line No.";
             Claims."Customer No." := Rec."Sell-to Customer No.";
-            Claims.Insert();
+            Claims."Reclamation date" := WorkDate();
             Claims."Wheel Item No." := SalesLine."No.";
             Claims."Plaque Code" := Rec."Plaque Code";
             Claims."Vehicle Kms." := Rec."Vehicle Kms.";
-            Claims.Modify();
+            Claims.Insert(true);
         end;
 
     end;
