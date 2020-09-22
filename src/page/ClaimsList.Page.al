@@ -69,10 +69,12 @@ page 50327 "Claims List"
                 field("Customer Liquidation"; "Customer Liquidation")
                 {
                     ApplicationArea = All;
+                    Editable = false;
                 }
                 field("Vendor Liquidation"; "Vendor Liquidation")
                 {
                     ApplicationArea = All;
+                    Editable = false;
                 }
             }
         }

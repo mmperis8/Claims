@@ -88,6 +88,11 @@ codeunit 50322 "Claims Management"
             if not GLAccount."Claiming Account" then
                 exit;
 
+        Claims.SetRange("Source No.", Rec."No.");
+        Claims.SetRange("Source Line No.", SalesLine."Line No.");
+        if Claims.FindFirst() then
+            exit;
+
         if SalesLine.Count = 1 then begin
             Claims.Init();
             Claims."Source No." := Rec."No.";
