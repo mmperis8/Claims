@@ -94,6 +94,21 @@ table 50320 "Claims"
             Caption = 'Vendor Liquidation', comment = 'ESP="Liquidación Proveedor"';
             DataClassification = CustomerContent;
         }
+        field(65; "Vendor Cr Memo No."; Code[20])
+        {
+            Caption = 'Vendor Cr Memo No', comment = 'ESP="Nº Abono Proveedor"';
+            DataClassification = CustomerContent;
+        }
+        field(70; "Vendor Cr Memo Amount"; Decimal)
+        {
+            Caption = 'Vendor Cr Memo Amount', comment = 'ESP="Importe Abono Proveedor"';
+            DataClassification = CustomerContent;
+        }
+        field(75; "Vendor Account"; Code[20])
+        {
+            Caption = 'Vendor Account', comment = 'ESP="Cta Proveedor"';
+            DataClassification = CustomerContent;
+        }
     }
 
     keys

@@ -99,6 +99,24 @@
           <note from="Xliff Generator" annotates="general" priority="3">Table Claims - Field Vendor Liquidation - Property Caption</note>
           <target>Liquidación Proveedor</target>
         </trans-unit>
+        <trans-unit id="Table 2860450491 - Field 967656036 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Vendor Cr Memo No</source>
+          <note from="Developer" annotates="general" priority="2">ESP="Nº Abono Proveedor"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Claims - Field Vendor Cr Memo No. - Property Caption</note>
+          <target>Nº Abono Proveedor</target>
+        </trans-unit>
+        <trans-unit id="Table 2860450491 - Field 2891289765 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Vendor Cr Memo Amount</source>
+          <note from="Developer" annotates="general" priority="2">ESP="Importe Abono Proveedor"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Claims - Field Vendor Cr Memo Amount - Property Caption</note>
+          <target>Importe Abono Proveedor</target>
+        </trans-unit>
+        <trans-unit id="Table 2860450491 - Field 2717025503 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Vendor Account</source>
+          <note from="Developer" annotates="general" priority="2">ESP="Cta Proveedor"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Claims - Field Vendor Account - Property Caption</note>
+          <target>Cta Proveedor</target>
+        </trans-unit>
         <trans-unit id="Codeunit 3442031084 - NamedType 1389818255" size-unit="char" translate="yes" xml:space="preserve">
           <source>You must enter the information about the claim, Line button-&gt;Claims and fill in the fields indicated in red</source>
           <note from="Developer" annotates="general" priority="2">ESP="Debe introducir la informacion sobre la reclamación.Boton Linea-&gt;Reclamaciones y rellenar obligatoriamente los campos indicados en color rojo"</note>

@@ -12,7 +12,7 @@ codeunit 50320 "Purchase Management"
         if PurchLine.FindSet() then
             repeat
                 if PurchLine."Claim No." = 0 then
-                    Error(StrSubstNo(NoClaimErr, PurchLine."Line No."));
+                    Error(NoClaimErr);
             until PurchLine.Next() = 0;
 
     end;
@@ -27,18 +27,17 @@ codeunit 50320 "Purchase Management"
         if PurchaseHeader."Document Type" <> PurchaseHeader."Document Type"::"Credit Memo" then
             exit;
 
-        Clear(Claims);
         PurchaseLine.SetRange("Document No.", PurchaseHeader."No.");
         PurchaseLine.SetRange(Type, PurchaseLine.Type::"G/L Account");
         if PurchaseLine.FindSet() then
             repeat
-                if Claims.Get(PurchaseLine."Claim No.") then begin
+                Clear(Claims);
+                Claims.SetRange("No.", PurchaseLine."Claim No.");
+                if Claims.FindFirst() then begin
                     Claims."Vendor Liquidation" := true;
-                    /*                                      
                     Claims."Vendor Cr Memo No." := PurchaseHeader."No.";
-                    Claims."Cr Memo Vendor Amount" := PurchaseLine.Amount; ?
+                    Claims."Vendor Cr Memo Amount" := PurchaseLine.Amount;
                     Claims."Vendor Account" := PurchaseLine."No.";
-                    */
                     Claims.Modify();
                 end;
             until PurchaseLine.Next() = 0;
@@ -52,7 +51,8 @@ codeunit 50320 "Purchase Management"
         if (Rec."Document Type" <> Rec."Document Type"::"Credit Memo") or (Rec.Type <> Rec.Type::"G/L Account") then
             exit;
 
-        if Claims.Get(Rec."Claim No.") then begin
+        Claims.SetRange("No.", Rec."Claim No.");
+        if Claims.FindFirst() then begin
             Claims."Vendor Observations" := Rec.Description;
             Claims.Modify();
         end;
