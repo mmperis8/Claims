@@ -18,7 +18,7 @@ page 50328 "Create Claim Page"
                 field("No."; "No.")
                 {
                     ApplicationArea = All;
-                    Caption = 'O.R. No.', comment = 'ESP="Nº O.R."';
+                    Caption = 'O.R. No.', comment = 'ESP="Nº O.R.",PTG="Nº O.R"';
                     Editable = false;
                 }
                 field("Sell-to Customer Name"; "Sell-to Customer Name")
@@ -49,12 +49,12 @@ page 50328 "Create Claim Page"
                 field(Account; Account)
                 {
                     ApplicationArea = All;
-                    Caption = 'Account', comment = 'ESP="Cuenta"';
+                    Caption = 'Account', comment = 'ESP="Cuenta",PTG="Conta"';
                 }
                 field(AmountToCrMemo; AmountToCrMemo)
                 {
                     ApplicationArea = All;
-                    Caption = 'Amount', comment = 'ESP="Importe"';
+                    Caption = 'Amount', comment = 'ESP="Importe",PTG="Montante"';
                 }
             }
         }
@@ -71,7 +71,7 @@ page 50328 "Create Claim Page"
                 PromotedIsBig = true;
                 PromotedCategory = Process;
                 Caption = 'Cancel claim',
-                    comment = 'ESP="Anular reclamación",PTG=""';
+                    comment = 'ESP="Anular reclamación",PTG="Cancelar cobranças"';
 
                 trigger OnAction()
                 begin
@@ -86,7 +86,7 @@ page 50328 "Create Claim Page"
                 PromotedIsBig = true;
                 PromotedCategory = Process;
                 Caption = 'Create Claim',
-                    comment = 'ESP="Crear reclamación",PTG=""';
+                    comment = 'ESP="Crear reclamación",PTG="Criar reclamação"';
 
                 trigger OnAction()
                 begin

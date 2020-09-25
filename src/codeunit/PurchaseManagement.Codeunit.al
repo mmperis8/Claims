@@ -59,7 +59,6 @@ codeunit 50320 "Purchase Management"
     end;
 
     var
-        NoReclamationErr: Label 'You must enter the information about the claim, Line button->Claims and fill in the fields indicated in red', comment = 'ESP="Debe introducir la informacion sobre la reclamación.Boton Linea->Reclamaciones y rellenar obligatoriamente los campos indicados en color rojo"';
-        NoClaimErr: Label 'You must specifie a claim no. on line %1', comment = 'ESP="Debe indicar el número de reclamación en la línea %1"';
+        NoClaimErr: Label 'You must specifie a claim no. on line %1', comment = 'ESP="Debe indicar el número de reclamación en la línea %1",PTG="Deve introduzir o número da reclamação na linha %1"';
 
 }
