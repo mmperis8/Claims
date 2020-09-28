@@ -2,6 +2,7 @@ table 50320 "Claims"
 {
     Caption = 'Claims', comment = 'ESP="Reclamaciones",PTG="Reclamações"';
     DataClassification = CustomerContent;
+    DataPerCompany = false;
 
     fields
     {

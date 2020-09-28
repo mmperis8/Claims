@@ -4,7 +4,7 @@ page 50327 "Claims List"
     ApplicationArea = All;
     UsageCategory = Lists;
     SourceTable = Claims;
-    Caption = 'Claims List', comment = 'ESP="Lista de reclamaciones"';
+    Caption = 'Claims List', comment = 'ESP="Lista de reclamaciones",PTG="Lista de reclamações"';
 
     layout
     {

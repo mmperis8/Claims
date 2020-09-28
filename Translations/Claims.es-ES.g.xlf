@@ -131,7 +131,7 @@
         </trans-unit>
         <trans-unit id="Page 3463626789 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Claims List</source>
-          <note from="Developer" annotates="general" priority="2">ESP="Lista de reclamaciones"</note>
+          <note from="Developer" annotates="general" priority="2">ESP="Lista de reclamaciones",PTG="Lista de reclamações"</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Claims List - Property Caption</note>
           <target>Lista de reclamaciones</target>
         </trans-unit>
