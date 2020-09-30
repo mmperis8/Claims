@@ -10,7 +10,7 @@ page 50327 "Claims List"
     {
         area(Content)
         {
-            repeater(GroupName)
+            repeater(General)
             {
                 field("No."; "No.")
                 {

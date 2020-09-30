@@ -27,40 +27,54 @@ codeunit 50321 "Sales Management"
     [EventSubscriber(ObjectType::Table, Database::"Sales Line", 'OnAfterValidateEvent', 'No.', false, false)]
     local procedure OnAfterValidateSalesLineNoEvent(var Rec: Record "Sales Line"; var xRec: Record "Sales Line")
     var
-        Claims: Record Claims;
         GLAccount: Record "G/L Account";
-        SalesHeader: Record "Sales Header";
-        SalesLine: Record "Sales Line";
+        ClaimingAccErr: Label 'The specified account is meant to be used on the claims process', comment = 'ESP="La cuenta especificada está pensada para usarse en el circuito de reclamaciones",PTG="A conta especificada destina-se a ser utilizada no circuito de reclamações"';
     begin
-        Clear(Claims);
-        Claims.SetRange("Source No.", Rec."Applied warranty to Doc. No.");
-        Claims.SetRange("Source Line No.", Rec."Applied warranty to Line No.");
-        if Claims.FindFirst() then
-            Claims.Delete();
+        if Rec."Document Type" <> Rec."Document Type"::Order then
+            exit;
 
-        if Rec."Document Type" <> Rec."Document Type"::"Credit Memo" then
-            exit;
-        if Rec.Type <> Rec.Type::"G/L Account" then
-            exit;
         if GLAccount.Get(Rec."No.") then
-            if not GLAccount."Claiming Account" then
-                exit;
-
-        Clear(Claims);
-        if SalesHeader.Get(SalesHeader."Document Type"::Order, Rec."Applied warranty to Doc. No.") then
-            if SalesLine.Get(SalesHeader."Document Type", Rec."Applied warranty to Doc. No.", Rec."Applied warranty to Line No.") then begin
-                Claims.Init();
-                Claims."Source No." := SalesHeader."No.";
-                Claims."Source Line No." := SalesLine."Line No.";
-                Claims."Customer No." := SalesHeader."Sell-to Customer No.";
-                Claims.Insert(true);
-                Claims."Wheel Item No." := SalesLine."No.";
-                Claims."Plaque Code" := SalesHeader."Plaque Code";
-                Claims."Vehicle Kms." := SalesHeader."Vehicle Kms.";
-                Claims.Modify();
-            end;
+            if GLAccount."Claiming Account" then
+                Error(ClaimingAccErr);
     end;
+    /*
+        [EventSubscriber(ObjectType::Table, Database::"Sales Line", 'OnAfterValidateEvent', 'No.', false, false)]
+        local procedure OnAfterValidateCrMemoLineNoEvent(var Rec: Record "Sales Line"; var xRec: Record "Sales Line")
+        var
+            Claims: Record Claims;
+            GLAccount: Record "G/L Account";
+            SalesHeader: Record "Sales Header";
+            SalesLine: Record "Sales Line";
+        begin
+            Clear(Claims);
+            Claims.SetRange("Source No.", Rec."Applied warranty to Doc. No.");
+            Claims.SetRange("Source Line No.", Rec."Applied warranty to Line No.");
+            if Claims.FindFirst() then
+                Claims.Delete();
 
+            if Rec."Document Type" <> Rec."Document Type"::"Credit Memo" then
+                exit;
+            if Rec.Type <> Rec.Type::"G/L Account" then
+                exit;
+            if GLAccount.Get(Rec."No.") then
+                if not GLAccount."Claiming Account" then
+                    exit;
+
+            Clear(Claims);
+            if SalesHeader.Get(SalesHeader."Document Type"::Order, Rec."Applied warranty to Doc. No.") then
+                if SalesLine.Get(SalesHeader."Document Type", Rec."Applied warranty to Doc. No.", Rec."Applied warranty to Line No.") then begin
+                    Claims.Init();
+                    Claims."Source No." := SalesHeader."No.";
+                    Claims."Source Line No." := SalesLine."Line No.";
+                    Claims."Customer No." := SalesHeader."Sell-to Customer No.";
+                    Claims.Insert(true);
+                    Claims."Wheel Item No." := SalesLine."No.";
+                    Claims."Plaque Code" := SalesHeader."Plaque Code";
+                    Claims."Vehicle Kms." := SalesHeader."Vehicle Kms.";
+                    Claims.Modify();
+                end;
+        end;
+    */
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"Sales-Post", 'OnBeforePostSalesLines', '', false, false)]
     local procedure OnBeforePostSalesLines(var SalesHeader: Record "Sales Header")
     var
@@ -106,10 +120,11 @@ codeunit 50321 "Sales Management"
 
         Clear(Claims);
         Claims.SetRange("Source No.", SalesHeader."No.");
-        if Claims.FindFirst() then begin
-            Claims."Customer Liquidation" := true;
-            Claims.Modify();
-        end;
+        if Claims.FindSet(true) then
+            repeat
+                Claims."Customer Liquidation" := true;
+                Claims.Modify();
+            until Claims.Next() = 0;
 
     end;
 

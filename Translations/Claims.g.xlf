@@ -98,10 +98,20 @@
           <note from="Developer" annotates="general" priority="2">ESP="Cta Proveedor",PTG="Conta Fornecedor"</note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Claims - Field Vendor Account - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Codeunit 1458396766 - Method 3372963587 - NamedType 1303806686" size-unit="char" translate="yes" xml:space="preserve">
+          <source>There is no line in the original sales order to settle this claim</source>
+          <note from="Developer" annotates="general" priority="2">ESP="No se encuentra línia en el pedido de venta origen para liquidar esta reclamación",PTG="Não há linha na ordem de venda original para resolver esta reclamação"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Claims Management - Method CreateSalesCrMemoLine - NamedType NoLineErr</note>
+        </trans-unit>
         <trans-unit id="Codeunit 3442031084 - NamedType 1620546306" size-unit="char" translate="yes" xml:space="preserve">
           <source>You must specifie a claim no. on line %1</source>
           <note from="Developer" annotates="general" priority="2">ESP="Debe indicar el número de reclamación en la línea %1",PTG="Deve introduzir o número da reclamação na linha %1"</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Purchase Management - NamedType NoClaimErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 494194381 - Method 146851460 - NamedType 4001842386" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The specified account is meant to be used on the claims process</source>
+          <note from="Developer" annotates="general" priority="2">ESP="La cuenta especificada está pensada para usarse en el circuito de reclamaciones",PTG="A conta especificada destina-se a ser utilizada no circuito de reclamações"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Sales Management - Method OnAfterValidateSalesLineNoEvent - NamedType ClaimingAccErr</note>
         </trans-unit>
         <trans-unit id="Codeunit 494194381 - NamedType 1389818255" size-unit="char" translate="yes" xml:space="preserve">
           <source>You must enter the information about the claim</source>
@@ -133,10 +143,45 @@
           <note from="Developer" annotates="general" priority="2">ESP="Cuenta",PTG="Conta"</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Create Claim Page - Control Account - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 3155018263 - Control 1267408499 - Method 2126772001 - NamedType 1870150482" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The specifies account does not exist</source>
+          <note from="Developer" annotates="general" priority="2">ESP="La cuenta especificada no existe",PTG="A conta especificada não existe"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Create Claim Page - Control Account - Method OnValidate - NamedType NoExistingAccErr</note>
+        </trans-unit>
+        <trans-unit id="Page 3155018263 - Control 1267408499 - Method 2126772001 - NamedType 2205914125" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The specified account cannot be used as it is not a claims account</source>
+          <note from="Developer" annotates="general" priority="2">ESP="La cuenta especificada no puede ser usada al no ser una cuenta de reclamaciones",PTG="A conta especificada não pode ser utilizada porque não é uma conta de créditos"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Create Claim Page - Control Account - Method OnValidate - NamedType NotClaimingAccErr</note>
+        </trans-unit>
         <trans-unit id="Page 3155018263 - Control 1549872688 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Amount</source>
           <note from="Developer" annotates="general" priority="2">ESP="Importe",PTG="Montante"</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Create Claim Page - Control AmountToCrMemo - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3155018263 - Control 3294924169 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Wheel Item No.</source>
+          <note from="Developer" annotates="general" priority="2">ESP="Nº producto rueda",PTG="N.º do produto roda"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Create Claim Page - Control WheelItemNo - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3155018263 - Control 1205362873 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>M.E</source>
+          <note from="Developer" annotates="general" priority="2">ESP="M.E",PTG="M.E"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Create Claim Page - Control M_E - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3155018263 - Control 3198169715 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Vehicle Kms.</source>
+          <note from="Developer" annotates="general" priority="2">ESP="Km. Uso",PTG="Km. Utilização"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Create Claim Page - Control Vehicle_KM - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3155018263 - Control 3746816049 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Mm. Start</source>
+          <note from="Developer" annotates="general" priority="2">ESP="Mm. Inicio",PTG="Mm. Início"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Create Claim Page - Control Mm_Start - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3155018263 - Control 2290390436 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Mm. Substract</source>
+          <note from="Developer" annotates="general" priority="2">ESP="Mm. Resto",PTG="Mm. Descanso"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Create Claim Page - Control Mm_Substract - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3155018263 - Action 464469542 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Cancel claim</source>
