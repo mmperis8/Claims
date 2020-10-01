@@ -108,10 +108,20 @@
           <note from="Developer" annotates="general" priority="2">ESP="Debe indicar el número de reclamación en la línea %1",PTG="Deve introduzir o número da reclamação na linha %1"</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Purchase Management - NamedType NoClaimErr</note>
         </trans-unit>
-        <trans-unit id="Codeunit 494194381 - Method 146851460 - NamedType 4001842386" size-unit="char" translate="yes" xml:space="preserve">
+        <trans-unit id="Codeunit 494194381 - Method 3587085312 - NamedType 2287583958" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The specified account is going to create a claim, do you wish to continue?</source>
+          <note from="Developer" annotates="general" priority="2">ESP="La cuenta especificada creará una reclamación, desea continuar?",PTG="A conta especificada irá criar uma reclamação, gostaria de continuar?"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Sales Management - Method OnAfterValidateNoSalesCrMemSubform - NamedType ClaimingAccMsg</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 494194381 - Method 3587085312 - NamedType 4001842386" size-unit="char" translate="yes" xml:space="preserve">
           <source>The specified account is meant to be used on the claims process</source>
           <note from="Developer" annotates="general" priority="2">ESP="La cuenta especificada está pensada para usarse en el circuito de reclamaciones",PTG="A conta especificada destina-se a ser utilizada no circuito de reclamações"</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Sales Management - Method OnAfterValidateSalesLineNoEvent - NamedType ClaimingAccErr</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Sales Management - Method OnAfterValidateNoSalesCrMemSubform - NamedType ClaimingAccErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 494194381 - Method 2593007420 - NamedType 4001842386" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The specified account is meant to be used on the claims process</source>
+          <note from="Developer" annotates="general" priority="2">ESP="La cuenta especificada está pensada para usarse en el circuito de reclamaciones",PTG="A conta especificada destina-se a ser utilizada no circuito de reclamações"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Sales Management - Method OnAfterValidateNoSalesOrderSub - NamedType ClaimingAccErr</note>
         </trans-unit>
         <trans-unit id="Codeunit 494194381 - NamedType 1389818255" size-unit="char" translate="yes" xml:space="preserve">
           <source>You must enter the information about the claim</source>
@@ -192,6 +202,16 @@
           <source>Create Claim</source>
           <note from="Developer" annotates="general" priority="2">ESP="Crear reclamación",PTG="Criar reclamação"</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Create Claim Page - Action CreateClaim - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3155018263 - Action 4107779690 - Method 1377591017 - NamedType 952499262" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Mandatory fields must have a value</source>
+          <note from="Developer" annotates="general" priority="2">ESP="Los campos obligatorios deben tener un valor",PTG="Os campos obrigatórios devem ter um valor"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Create Claim Page - Action CreateClaim - Method OnAction - NamedType EmptyFieldErr</note>
+        </trans-unit>
+        <trans-unit id="Page 3155018263 - Action 3461998260 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Claims List</source>
+          <note from="Developer" annotates="general" priority="2">ESP="Lista de reclamaciones",PTG="Lista de reclamações"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Create Claim Page - Action ClaimList - Property Caption</note>
         </trans-unit>
         <trans-unit id="PageExtension 894292065 - Action 1229219799 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1673401186">
           <source>Create claims</source>

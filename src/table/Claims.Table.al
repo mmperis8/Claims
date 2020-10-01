@@ -47,6 +47,7 @@ table 50320 "Claims"
         {
             Caption = 'Wheel Item No.', comment = 'ESP="Nº producto rueda",PTG="N.º do produto roda"';
             DataClassification = CustomerContent;
+            TableRelation = Item;
         }
         field(20; "Plaque Code"; Code[20])
         {

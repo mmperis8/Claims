@@ -1,5 +1,6 @@
 codeunit 50321 "Sales Management"
 {
+    /*
     [EventSubscriber(ObjectType::Table, Database::"Sales Line", 'OnBeforeDeleteEvent', '', false, false)]
     local procedure OnAfterDeleteSalesLineEvent(var Rec: Record "Sales Line")
     var
@@ -15,27 +16,43 @@ codeunit 50321 "Sales Management"
         if Claims.FindFirst() then
             Claims.Delete();
 
-    end;
+    end;*/
 
     [EventSubscriber(ObjectType::Table, Database::"Sales Line", 'OnValidateNoOnCopyFromTempSalesLine', '', false, false)]
-    procedure OnValidateNoOnCopyFromTempSalesLine(var SalesLine: Record "Sales Line"; var TempSalesLine: Record "Sales Line")
+    local procedure OnValidateNoOnCopyFromTempSalesLine(var SalesLine: Record "Sales Line"; var TempSalesLine: Record "Sales Line")
     begin
         SalesLine."Applied warranty to Doc. No." := TempSalesLine."Applied warranty to Doc. No.";
         SalesLine."Applied warranty to Line No." := TempSalesLine."Applied warranty to Line No.";
     end;
 
-    [EventSubscriber(ObjectType::Table, Database::"Sales Line", 'OnAfterValidateEvent', 'No.', false, false)]
-    local procedure OnAfterValidateSalesLineNoEvent(var Rec: Record "Sales Line"; var xRec: Record "Sales Line")
+    [EventSubscriber(ObjectType::Page, Page::"Sales Cr. Memo Subform", 'OnAfterValidateEvent', 'No.', false, false)]
+    local procedure OnAfterValidateNoSalesCrMemSubform(var Rec: Record "Sales Line"; var xRec: Record "Sales Line")
+    var
+        GLAccount: Record "G/L Account";
+        ClaimingAccMsg: Label 'The specified account is going to create a claim, do you wish to continue?', comment = 'ESP="La cuenta especificada creará una reclamación, desea continuar?",PTG="A conta especificada irá criar uma reclamação, gostaria de continuar?"';
+        ClaimingAccErr: Label 'The specified account is meant to be used on the claims process', comment = 'ESP="La cuenta especificada está pensada para usarse en el circuito de reclamaciones",PTG="A conta especificada destina-se a ser utilizada no circuito de reclamações"';
+
+    begin
+        if Rec."Document Type" = Rec."Document Type"::"Credit Memo" then
+            if GLAccount.Get(Rec."No.") then
+                if GLAccount."Claiming Account" then
+                    if not Confirm(ClaimingAccMsg) then
+                        Error(ClaimingAccErr)
+                    else
+                        Page.Run(Page::"Claims List");
+    end;
+
+    [EventSubscriber(ObjectType::Page, Page::"Sales Order Subform", 'OnAfterValidateEvent', 'No.', false, false)]
+    local procedure OnAfterValidateNoSalesOrderSub(var Rec: Record "Sales Line"; var xRec: Record "Sales Line")
     var
         GLAccount: Record "G/L Account";
         ClaimingAccErr: Label 'The specified account is meant to be used on the claims process', comment = 'ESP="La cuenta especificada está pensada para usarse en el circuito de reclamaciones",PTG="A conta especificada destina-se a ser utilizada no circuito de reclamações"';
     begin
-        if Rec."Document Type" <> Rec."Document Type"::Order then
-            exit;
+        if Rec."Document Type" = Rec."Document Type"::Order then
+            if GLAccount.Get(Rec."No.") then
+                if GLAccount."Claiming Account" then
+                    Error(ClaimingAccErr);
 
-        if GLAccount.Get(Rec."No.") then
-            if GLAccount."Claiming Account" then
-                Error(ClaimingAccErr);
     end;
     /*
         [EventSubscriber(ObjectType::Table, Database::"Sales Line", 'OnAfterValidateEvent', 'No.', false, false)]
@@ -91,7 +108,7 @@ codeunit 50321 "Sales Management"
                 if Claims.FindFirst() then
                     if (Claims."Customer No." = '') Or (Claims."Wheel Item No." = '') Or
                     (Claims."Reclamation date" = 0D) Or
-                    (Claims."M.E" = '') Or (Claims."Mm. Substract" = 0) then
+                    (Claims."Source No." = '') Or (Claims."Plaque Code" = '') then
                         Error(NoReclamationErr);
             until SalesCrMemoLine.Next() = 0;
 
@@ -125,7 +142,6 @@ codeunit 50321 "Sales Management"
                 Claims."Customer Liquidation" := true;
                 Claims.Modify();
             until Claims.Next() = 0;
-
     end;
 
     var

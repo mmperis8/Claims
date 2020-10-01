@@ -15,33 +15,33 @@ page 50328 "Create Claim Page"
             {
                 ShowCaption = false;
 
-                field("No."; "No.")
+                field("No."; Rec."No.")
                 {
                     ApplicationArea = All;
                     Caption = 'O.R. No.', comment = 'ESP="Nº O.R.",PTG="Nº O.R"';
                     Editable = false;
                 }
-                field("Sell-to Customer Name"; "Sell-to Customer Name")
+                field("Sell-to Customer Name"; Rec."Sell-to Customer Name")
                 {
                     ApplicationArea = All;
                     Editable = false;
                 }
-                field("Sell-to Address"; "Sell-to Address")
+                field("Sell-to Address"; Rec."Sell-to Address")
                 {
                     ApplicationArea = All;
                     Editable = false;
                 }
-                field("Sell-to Post Code"; "Sell-to Post Code")
+                field("Sell-to Post Code"; Rec."Sell-to Post Code")
                 {
                     ApplicationArea = All;
                     Editable = false;
                 }
-                field("Sell-to City"; "Sell-to City")
+                field("Sell-to City"; Rec."Sell-to City")
                 {
                     ApplicationArea = All;
                     Editable = false;
                 }
-                field("Plaque Code"; "Plaque Code")
+                field("Plaque Code"; Rec."Plaque Code")
                 {
                     ApplicationArea = All;
                     Editable = false;
@@ -50,6 +50,7 @@ page 50328 "Create Claim Page"
                 {
                     ApplicationArea = All;
                     Caption = 'Account', comment = 'ESP="Cuenta",PTG="Conta"';
+                    ShowMandatory = true;
 
                     trigger OnValidate()
                     var
@@ -67,11 +68,14 @@ page 50328 "Create Claim Page"
                 {
                     ApplicationArea = All;
                     Caption = 'Amount', comment = 'ESP="Importe",PTG="Montante"';
+                    ShowMandatory = true;
                 }
                 field(WheelItemNo; WheelItemNo)
                 {
                     Caption = 'Wheel Item No.', comment = 'ESP="Nº producto rueda",PTG="N.º do produto roda"';
                     ApplicationArea = All;
+                    TableRelation = Item;
+                    ShowMandatory = true;
                 }
                 field(M_E; M_E)
                 {
@@ -126,11 +130,24 @@ page 50328 "Create Claim Page"
                     comment = 'ESP="Crear reclamación",PTG="Criar reclamação"';
 
                 trigger OnAction()
+                var
+                    EmptyFieldErr: Label 'Mandatory fields must have a value', comment = 'ESP="Los campos obligatorios deben tener un valor",PTG="Os campos obrigatórios devem ter um valor"';
                 begin
-
+                    if (Account = '') Or (AmountToCrMemo = 0) Or (WheelItemNo = '') then
+                        Error(EmptyFieldErr);
                     ClaimsManagement.CreateSalesCrMemo(Rec, AmountToCrMemo, Account, WheelItemNo, M_E, Vehicle_KM, Mm_Start, Mm_Substract);
                     CurrPage.Close();
                 end;
+            }
+            action(ClaimList)
+            {
+                ApplicationArea = All;
+                Image = List;
+                Promoted = true;
+                PromotedIsBig = true;
+                PromotedCategory = Process;
+                Caption = 'Claims List', comment = 'ESP="Lista de reclamaciones",PTG="Lista de reclamações"';
+                RunObject = page "Claims List";
             }
         }
     }

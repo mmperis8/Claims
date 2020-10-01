@@ -12,66 +12,78 @@ page 50327 "Claims List"
         {
             repeater(General)
             {
-                field("No."; "No.")
+                field("No."; Rec."No.")
                 {
                     ApplicationArea = All;
                 }
-                field("Customer No."; "Customer No.")
-                {
-                    ApplicationArea = All;
-                    NotBlank = true;
-                }
-                field("Wheel Item No."; "Wheel Item No.")
+                field("Customer No."; Rec."Customer No.")
                 {
                     ApplicationArea = All;
                     NotBlank = true;
                 }
-                field("Plaque Code"; "Plaque Code")
+                field("Wheel Item No."; Rec."Wheel Item No.")
                 {
                     ApplicationArea = All;
                     NotBlank = true;
                 }
-                field("Reclamation date"; "Reclamation date")
+                field("Plaque Code"; Rec."Plaque Code")
                 {
                     ApplicationArea = All;
                     NotBlank = true;
                 }
-                field("M.E"; "M.E")
+                field("Reclamation date"; Rec."Reclamation date")
                 {
                     ApplicationArea = All;
                     NotBlank = true;
                 }
-                field("Vehicle Kms."; "Vehicle Kms.")
-                {
-                    ApplicationArea = All;
-                }
-                field("Mm. Start"; "Mm. Start")
-                {
-                    ApplicationArea = All;
-                }
-                field("Mm. Substract"; "Mm. Substract")
+                field("M.E"; Rec."M.E")
                 {
                     ApplicationArea = All;
                     NotBlank = true;
                 }
-                field("Source No."; "Source No.")
+                field("Vehicle Kms."; Rec."Vehicle Kms.")
                 {
                     ApplicationArea = All;
                 }
-                field("Source Line No."; "Source Line No.")
+                field("Mm. Start"; Rec."Mm. Start")
                 {
                     ApplicationArea = All;
                 }
-                field("Vendor Observations"; "Vendor Observations")
+                field("Mm. Substract"; Rec."Mm. Substract")
+                {
+                    ApplicationArea = All;
+                    NotBlank = true;
+                }
+                field("Source No."; Rec."Source No.")
                 {
                     ApplicationArea = All;
                 }
-                field("Customer Liquidation"; "Customer Liquidation")
+                field("Source Line No."; Rec."Source Line No.")
+                {
+                    ApplicationArea = All;
+                }
+                field("Vendor Observations"; Rec."Vendor Observations")
+                {
+                    ApplicationArea = All;
+                }
+                field("Vendor Cr Memo No."; Rec."Vendor Cr Memo No.")
+                {
+                    ApplicationArea = All;
+                }
+                field("Vendor Cr Memo Amount"; Rec."Vendor Cr Memo Amount")
+                {
+                    ApplicationArea = All;
+                }
+                field("Vendor Account"; Rec."Vendor Account")
+                {
+                    ApplicationArea = All;
+                }
+                field("Customer Liquidation"; Rec."Customer Liquidation")
                 {
                     ApplicationArea = All;
                     Editable = false;
                 }
-                field("Vendor Liquidation"; "Vendor Liquidation")
+                field("Vendor Liquidation"; Rec."Vendor Liquidation")
                 {
                     ApplicationArea = All;
                     Editable = false;
