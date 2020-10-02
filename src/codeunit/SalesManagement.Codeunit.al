@@ -1,22 +1,5 @@
 codeunit 50321 "Sales Management"
 {
-    /*
-    [EventSubscriber(ObjectType::Table, Database::"Sales Line", 'OnBeforeDeleteEvent', '', false, false)]
-    local procedure OnAfterDeleteSalesLineEvent(var Rec: Record "Sales Line")
-    var
-        Claims: Record Claims;
-    begin
-        if Rec."Document Type" <> Rec."Document Type"::"Credit Memo" then
-            exit;
-        if Rec.Type <> Rec.Type::"G/L Account" then
-            exit;
-
-        Claims.SetRange("Source No.", Rec."Applied warranty to Doc. No.");
-        Claims.SetRange("Source Line No.", Rec."Applied warranty to Line No.");
-        if Claims.FindFirst() then
-            Claims.Delete();
-
-    end;*/
 
     [EventSubscriber(ObjectType::Table, Database::"Sales Line", 'OnValidateNoOnCopyFromTempSalesLine', '', false, false)]
     local procedure OnValidateNoOnCopyFromTempSalesLine(var SalesLine: Record "Sales Line"; var TempSalesLine: Record "Sales Line")
@@ -28,18 +11,31 @@ codeunit 50321 "Sales Management"
     [EventSubscriber(ObjectType::Page, Page::"Sales Cr. Memo Subform", 'OnAfterValidateEvent', 'No.', false, false)]
     local procedure OnAfterValidateNoSalesCrMemSubform(var Rec: Record "Sales Line"; var xRec: Record "Sales Line")
     var
+        SalesHeader: Record "Sales Header";
+        Claims: Record Claims;
         GLAccount: Record "G/L Account";
         ClaimingAccMsg: Label 'The specified account is going to create a claim, do you wish to continue?', comment = 'ESP="La cuenta especificada creará una reclamación, desea continuar?",PTG="A conta especificada irá criar uma reclamação, gostaria de continuar?"';
         ClaimingAccErr: Label 'The specified account is meant to be used on the claims process', comment = 'ESP="La cuenta especificada está pensada para usarse en el circuito de reclamaciones",PTG="A conta especificada destina-se a ser utilizada no circuito de reclamações"';
-
     begin
-        if Rec."Document Type" = Rec."Document Type"::"Credit Memo" then
+        if Rec.Type = Rec.Type::"G/L Account" then
             if GLAccount.Get(Rec."No.") then
                 if GLAccount."Claiming Account" then
                     if not Confirm(ClaimingAccMsg) then
                         Error(ClaimingAccErr)
-                    else
-                        Page.Run(Page::"Claims List");
+                    else begin
+                        SalesHeader.Get(Rec."Document Type", Rec."Document No.");
+                        Claims.Init();
+                        Claims."Source No." := Rec."Document No.";
+                        if Claims."Source Line No." = 0 then
+                            Claims."Source Line No." := 10000
+                        else
+                            Claims."Source Line No." := Rec."Line No.";
+                        Claims."Customer No." := Rec."Sell-to Customer No.";
+                        Claims."Reclamation date" := WorkDate();
+                        Claims."Plaque Code" := SalesHeader."Plaque Code";
+                        Claims.Insert(true);
+                        Page.Run(Page::"Claims List", Claims);
+                    end;
     end;
 
     [EventSubscriber(ObjectType::Page, Page::"Sales Order Subform", 'OnAfterValidateEvent', 'No.', false, false)]
@@ -48,50 +44,12 @@ codeunit 50321 "Sales Management"
         GLAccount: Record "G/L Account";
         ClaimingAccErr: Label 'The specified account is meant to be used on the claims process', comment = 'ESP="La cuenta especificada está pensada para usarse en el circuito de reclamaciones",PTG="A conta especificada destina-se a ser utilizada no circuito de reclamações"';
     begin
-        if Rec."Document Type" = Rec."Document Type"::Order then
+        if Rec.Type = Rec.Type::"G/L Account" then
             if GLAccount.Get(Rec."No.") then
                 if GLAccount."Claiming Account" then
                     Error(ClaimingAccErr);
-
     end;
-    /*
-        [EventSubscriber(ObjectType::Table, Database::"Sales Line", 'OnAfterValidateEvent', 'No.', false, false)]
-        local procedure OnAfterValidateCrMemoLineNoEvent(var Rec: Record "Sales Line"; var xRec: Record "Sales Line")
-        var
-            Claims: Record Claims;
-            GLAccount: Record "G/L Account";
-            SalesHeader: Record "Sales Header";
-            SalesLine: Record "Sales Line";
-        begin
-            Clear(Claims);
-            Claims.SetRange("Source No.", Rec."Applied warranty to Doc. No.");
-            Claims.SetRange("Source Line No.", Rec."Applied warranty to Line No.");
-            if Claims.FindFirst() then
-                Claims.Delete();
 
-            if Rec."Document Type" <> Rec."Document Type"::"Credit Memo" then
-                exit;
-            if Rec.Type <> Rec.Type::"G/L Account" then
-                exit;
-            if GLAccount.Get(Rec."No.") then
-                if not GLAccount."Claiming Account" then
-                    exit;
-
-            Clear(Claims);
-            if SalesHeader.Get(SalesHeader."Document Type"::Order, Rec."Applied warranty to Doc. No.") then
-                if SalesLine.Get(SalesHeader."Document Type", Rec."Applied warranty to Doc. No.", Rec."Applied warranty to Line No.") then begin
-                    Claims.Init();
-                    Claims."Source No." := SalesHeader."No.";
-                    Claims."Source Line No." := SalesLine."Line No.";
-                    Claims."Customer No." := SalesHeader."Sell-to Customer No.";
-                    Claims.Insert(true);
-                    Claims."Wheel Item No." := SalesLine."No.";
-                    Claims."Plaque Code" := SalesHeader."Plaque Code";
-                    Claims."Vehicle Kms." := SalesHeader."Vehicle Kms.";
-                    Claims.Modify();
-                end;
-        end;
-    */
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"Sales-Post", 'OnBeforePostSalesLines', '', false, false)]
     local procedure OnBeforePostSalesLines(var SalesHeader: Record "Sales Header")
     var

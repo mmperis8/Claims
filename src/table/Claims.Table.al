@@ -42,6 +42,7 @@ table 50320 "Claims"
         {
             Caption = 'Customer No.', comment = 'ESP="Nº Cliente",PTG="Nº de cliente"';
             DataClassification = CustomerContent;
+            TableRelation = Customer;
         }
         field(15; "Wheel Item No."; Code[20])
         {
@@ -53,6 +54,7 @@ table 50320 "Claims"
         {
             Caption = 'Plaque Code', comment = 'ESP="Cód. Matrícula",PTG="Código da matrícula"';
             DataClassification = CustomerContent;
+            TableRelation = Plaque;
         }
         field(25; "Reclamation date"; Date)
         {
@@ -110,6 +112,7 @@ table 50320 "Claims"
         {
             Caption = 'Vendor Account', comment = 'ESP="Cta Proveedor",PTG="Conta Fornecedor"';
             DataClassification = CustomerContent;
+            TableRelation = "G/L Account";
         }
     }
 

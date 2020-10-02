@@ -26,7 +26,7 @@
             "enableLongRunningSqlStatements": true,
             "enableSqlInformationDebugger": true,
             "port": 32749,
-            "schemaUpdateMode": "Synchronize"
+            "schemaUpdateMode": "ForceSync"
         }/*,
         {
             "type": "al",

@@ -91,4 +91,20 @@ page 50327 "Claims List"
             }
         }
     }
+    trigger OnQueryClosePage(CloseAction: Action): Boolean
+    var
+        ExitBool: Boolean;
+    begin
+        ExitBool := true;
+        if (Rec."Customer No." = '') Or (Rec."Wheel Item No." = '') Or
+        (Rec."Reclamation date" = 0D) Or
+        (Rec."Source No." = '') Or (Rec."Plaque Code" = '') then begin
+            ExitBool := false;
+            Error(NoReclamationErr);
+        end;
+        exit(ExitBool);
+    end;
+
+    var
+        NoReclamationErr: Label 'You must enter the information about the claim', comment = 'ESP="Debe introducir la informacion sobre la reclamación",PTG="Deve introduzir as informações sobre a reclamação"';
 }

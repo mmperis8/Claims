@@ -51,6 +51,7 @@ page 50328 "Create Claim Page"
                     ApplicationArea = All;
                     Caption = 'Account', comment = 'ESP="Cuenta",PTG="Conta"';
                     ShowMandatory = true;
+                    TableRelation = "G/L Account" where("Claiming Account" = const(true));
 
                     trigger OnValidate()
                     var
