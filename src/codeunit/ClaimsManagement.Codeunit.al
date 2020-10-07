@@ -67,6 +67,7 @@ codeunit 50322 "Claims Management"
         SalesCrMemoLine."Document No." := SalesCrMemoHeader."No.";
         SalesCrMemoLine."Document Type" := SalesCrMemoHeader."Document Type";
         SalesCrMemoLine."Line No." := LineNo;
+        SalesCrMemoLine.Insert(true);
         SalesCrMemoLine.Type := SalesCrMemoLine.Type::"G/L Account";
         SalesCrMemoLine.VALIDATE("Line Discount %", 0);
         if Account <> '' then
@@ -77,7 +78,7 @@ codeunit 50322 "Claims Management"
 
         SalesCrMemoLine."Applied warranty to Doc. No." := SalesLine."Document No.";
         SalesCrMemoLine."Applied warranty to Line No." := SalesLine."Line No.";
-        SalesCrMemoLine.Insert(true);
+        SalesCrMemoLine.Modify();
 
     end;
 
