@@ -1,5 +1,15 @@
 codeunit 50321 "Sales Management"
 {
+    [EventSubscriber(ObjectType::Table, Database::"Sales Line", 'OnAfterValidateEvent', 'No.', false, false)]
+    local procedure OnAferValidateNoSalesLine(var Rec: Record "Sales Line")
+    var
+        Claims: Record Claims;
+        ClaimsErr: Label 'There is a claim related to this order. It is not possible to report accounts in the lines of a sales order with claims', comment = 'ESP="Existe una reclamación relacionada con este pedido. No es posible informar cuentas en las línias de un pedido de venta con reclamaciones",PTG="Há uma reclamação relacionada com esta encomenda. Não é possível reportar contas nas linhas de uma ordem de venda com queixas"';
+    begin
+        Claims.SetRange("Source No.", Rec."Document No.");
+        if not Claims.IsEmpty() then
+            Error(ClaimsErr);
+    end;
 
     [EventSubscriber(ObjectType::Table, Database::"Sales Line", 'OnValidateNoOnCopyFromTempSalesLine', '', false, false)]
     local procedure OnValidateNoOnCopyFromTempSalesLine(var SalesLine: Record "Sales Line"; var TempSalesLine: Record "Sales Line")
@@ -56,7 +66,6 @@ codeunit 50321 "Sales Management"
         Claims: Record Claims;
         SalesCrMemoLine: Record "Sales Line";
     begin
-
         SalesCrMemoLine.SetRange("Applied warranty to Doc. No.", SalesHeader."No.");
         if SalesCrMemoLine.Findset() then
             repeat
@@ -69,30 +78,29 @@ codeunit 50321 "Sales Management"
                     (Claims."Source No." = '') Or (Claims."Plaque Code" = '') then
                         Error(NoReclamationErr);
             until SalesCrMemoLine.Next() = 0;
-
     end;
 
-    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Sales-Post", 'OnAfterFinalizePostingOnBeforeCommit', '', true, true)]
-    local procedure OnAfterFinalizePostingOnBeforeCommit(var SalesHeader: Record "Sales Header"; var SalesInvoiceHeader: Record "Sales Invoice Header")
+    [EventSubscriber(ObjectType::Table, Database::"Sales Invoice Header", 'OnAfterInsertEvent', '', false, false)]
+    local procedure OnAfterInsertSalesInvHdEvent(var Rec: Record "Sales Invoice Header")
     var
         SalesCrMemoHeader: Record "Sales Header";
+        SalesHeader: Record "Sales Header";
     begin
-        if (SalesHeader."Document Type" = SalesHeader."Document Type"::Order) And (SalesHeader.Invoice) then begin
-            SalesCrMemoHeader.SetRange("Applied warranty to Doc. No.", SalesHeader."No.");
+        if SalesHeader.Get(SalesHeader."Document Type"::Order, Rec."Order No.") then begin
+            SalesCrMemoHeader.SetRange("Applied warranty to Doc. No.", Rec."Order No.");
             if SalesCrMemoHeader.FindFirst() then begin
-                SalesCrMemoHeader."Corrected Invoice No." := SalesInvoiceHeader."No.";
+                SalesCrMemoHeader."Corrected Invoice No." := Rec."No.";
                 SalesCrMemoHeader.Modify();
                 Codeunit.RUN(Codeunit::"Sales-Post", SalesCrMemoHeader);
             end;
         end;
     end;
 
-    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Sales-Post", 'OnAfterPostSalesDoc', '', false, false)]
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Sales-Post", 'OnAfterPostSalesDoc', '', true, true)]
     local procedure OnAfterPostSalesDoc(var SalesHeader: Record "Sales Header")
     var
         Claims: Record Claims;
     begin
-
         Clear(Claims);
         Claims.SetRange("Source No.", SalesHeader."No.");
         if Claims.FindSet(true) then

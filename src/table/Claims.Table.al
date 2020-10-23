@@ -66,7 +66,7 @@ table 50320 "Claims"
             Caption = 'M.E', comment = 'ESP="M.E",PTG="M.E"';
             DataClassification = CustomerContent;
         }
-        field(35; "Vehicle Kms."; Integer)
+        field(35; "Vehicle Kms."; Decimal)
         {
             Caption = 'Vehicle Kms.', comment = 'ESP="Km. Uso",PTG="Km. Utilização"';
             DataClassification = CustomerContent;

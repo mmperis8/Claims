@@ -2,7 +2,6 @@ codeunit 50322 "Claims Management"
 {
     procedure CreateClaim(var SalesHeader: Record "Sales Header")
     begin
-
         SalesHeader.TESTFIELD("Document Type", SalesHeader."Document Type"::Order);
         SalesHeader.TESTFIELD("Sell-to Customer No.");
         SalesHeader.TESTFIELD("Plaque code");
@@ -56,8 +55,9 @@ codeunit 50322 "Claims Management"
         LineNo := 10000;
         Clear(SalesCrMemoLine);
         SalesCrMemoLine.SetRange("Document No.", SalesCrMemoHeader."No.");
+        SalesCrMemoLine.SetRange("Document Type", SalesCrMemoHeader."Document Type");
         if SalesCrMemoLine.FindLast() then
-            LineNo += SalesCrMemoLine."Line No.";
+            LineNo := SalesCrMemoLine."Line No." + 10000;
 
         if not SalesLine.Get(Rec."Document Type", Rec."No.", LineNo) then
             Error(NoLineErr);

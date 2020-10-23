@@ -129,6 +129,12 @@
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Purchase Management - NamedType NoClaimErr</note>
           <target>Debe indicar el número de reclamación en la línea %1</target>
         </trans-unit>
+        <trans-unit id="Codeunit 494194381 - Method 1322259444 - NamedType 2009730464" size-unit="char" translate="yes" xml:space="preserve">
+          <source>There is a claim related to this order. It is not possible to report accounts in the lines of a sales order with claims</source>
+          <note from="Developer" annotates="general" priority="2">ESP="Existe una reclamación relacionada con este pedido. No es posible informar cuentas en las línias de un pedido de venta con reclamaciones",PTG="Há uma reclamação relacionada com esta encomenda. Não é possível reportar contas nas linhas de uma ordem de venda com queixas"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Sales Management - Method OnAferValidateNoSalesLine - NamedType ClaimsErr</note>
+          <target>Existe una reclamación relacionada con este pedido. No es posible informar cuentas en las línias de un pedido de venta con reclamaciones</target>
+        </trans-unit>
         <trans-unit id="Codeunit 494194381 - Method 3587085312 - NamedType 2287583958" size-unit="char" translate="yes" xml:space="preserve">
           <source>The specified account is going to create a claim, do you wish to continue?</source>
           <note from="Developer" annotates="general" priority="2">ESP="La cuenta especificada creará una reclamación, desea continuar?",PTG="A conta especificada irá criar uma reclamação, gostaria de continuar?"</note>
