@@ -114,6 +114,94 @@ table 50320 "Claims"
             DataClassification = CustomerContent;
             TableRelation = "G/L Account";
         }
+        field(80; "Location Code"; Code[20])
+        {
+            Caption = 'Location Code', comment = 'ESP="Cód. Almacén",PTG="Cód. Almacén"';
+            DataClassification = CustomerContent;
+            TableRelation = Location;
+        }
+        field(85; "Vehicle Type"; Enum "Vehicle Type")
+        {
+            Caption = 'Vehicle Type', comment = 'ESP="Tipo Vehiculo",PTG="Tipo de veículo"';
+            DataClassification = CustomerContent;
+        }
+        field(90; "Coordinator Review"; Boolean)
+        {
+            Caption = 'Coordinator Review', comment = 'ESP="Rev. Coordinador",PTG="Rev. Coordenador"';
+            DataClassification = CustomerContent;
+        }
+        field(95; "Coordinator Review Date"; Date)
+        {
+            Caption = 'Coordinator Review Date', comment = 'ESP="Fecha Revisión Coor.",PTG="Data de Revisão Coor."';
+            DataClassification = CustomerContent;
+        }
+        field(100; "Manufacturer Review"; Boolean)
+        {
+            Caption = 'Manufacturer Review', comment = 'ESP="Rev. Fabricante",PTG="Rev. Fabricante"';
+            DataClassification = CustomerContent;
+        }
+        field(105; "Manufacturer Review Date"; Date)
+        {
+            Caption = 'Manufacturer Review Date', comment = 'ESP="Fecha Revisión Fabr.",PTG="Fecha Revisión Fabr."';
+            DataClassification = CustomerContent;
+        }
+        field(110; Company; Text[50])
+        {
+            Caption = 'Company', comment = 'ESP="Empresa",PTG="Empresa"';
+            DataClassification = CustomerContent;
+        }
+        field(115; User; Code[20])
+        {
+            Caption = 'User', comment = 'ESP="Usuario",PTG="Usuario"';
+            DataClassification = CustomerContent;
+        }
+        field(120; "Record Insert Date"; Date)
+        {
+            Caption = 'Record Insert Date', comment = 'ESP="Fecha Ins. Reg.",PTG="Fecha Ins. Reg."';
+            DataClassification = CustomerContent;
+        }
+        field(125; Family; Code[20])
+        {
+            Caption = 'Family', comment = 'ESP="Familia",PTG="Familia"';
+            DataClassification = CustomerContent;
+            TableRelation = Family;
+        }
+        field(130; Brand; Code[20])
+        {
+            Caption = 'Brand', comment = 'ESP="Marca",PTG="Marca"';
+            DataClassification = CustomerContent;
+            TableRelation = Brand;
+        }
+        field(135; "Item Description"; Text[50])
+        {
+            Caption = 'Item Description', comment = 'ESP="Descripción producto",PTG="Descrição do produto"';
+            DataClassification = CustomerContent;
+        }
+        field(140; "Customer Name"; Text[50])
+        {
+            Caption = 'Customer Name', comment = 'ESP="Nombre Cliente",PTG="Nome do cliente"';
+            DataClassification = CustomerContent;
+        }
+        field(145; "Factory Report"; Text[100])
+        {
+            Caption = 'Factory Report', comment = 'ESP="Dictamen Fabrica",PTG="Relatório de Fábrica"';
+            DataClassification = CustomerContent;
+        }
+        field(150; "Refusing Code"; Code[10])
+        {
+            Caption = 'Refusing Code', comment = 'ESP="Cód. Rechazo",PTG="Cód. Rejeição"';
+            DataClassification = CustomerContent;
+        }
+        field(155; "Manufacturer AB Process"; Code[5])
+        {
+            Caption = 'Manufacturer AB Process', comment = 'ESP="Proce. AB. Fabricante",PTG="Proce. AB. Fabricante"';
+            DataClassification = CustomerContent;
+        }
+        field(160; "Exam Reason"; Enum "Exam Reason")
+        {
+            Caption = 'Exam Reason', comment = 'ESP="Motivo Examen",PTG="Motivo Examen"';
+            DataClassification = CustomerContent;
+        }
     }
 
     keys
