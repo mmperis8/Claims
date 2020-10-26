@@ -160,13 +160,13 @@ table 50320 "Claims"
             Caption = 'Record Insert Date', comment = 'ESP="Fecha Ins. Reg.",PTG="Fecha Ins. Reg."';
             DataClassification = CustomerContent;
         }
-        field(125; Family; Code[20])
+        field(125; Family; Code[15])
         {
             Caption = 'Family', comment = 'ESP="Familia",PTG="Familia"';
             DataClassification = CustomerContent;
             TableRelation = Family;
         }
-        field(130; Brand; Code[20])
+        field(130; Brand; Code[15])
         {
             Caption = 'Brand', comment = 'ESP="Marca",PTG="Marca"';
             DataClassification = CustomerContent;
@@ -202,6 +202,96 @@ table 50320 "Claims"
             Caption = 'Exam Reason', comment = 'ESP="Motivo Examen",PTG="Motivo Examen"';
             DataClassification = CustomerContent;
         }
+        field(165; Demonstrations; Code[10])
+        {
+            Caption = 'Demonstartions', comment = 'ESP="Manifestaciones",PTG="Manifestações"';
+            DataClassification = CustomerContent;
+        }
+        field(170; "Housing Brand"; Text[30])
+        {
+            Caption = 'Housing Brand', comment = 'ESP="Marca Carcasa",PTG="Marca Carcaça"';
+            DataClassification = CustomerContent;
+        }
+        field(175; "Housing Model"; Code[30])
+        {
+            Caption = 'Housing Model', comment = 'ESP="Modelo Carcasa",PTG="Modelo Carcaça"';
+            DataClassification = CustomerContent;
+        }
+        field(180; DOT; Text[20])
+        {
+            Caption = 'DOT', comment = 'ESP="DOT",PTG="DOT"';
+            DataClassification = CustomerContent;
+        }
+        field(185; "Vehicle Brand"; Text[30])
+        {
+            Caption = 'Vehicle Brand', comment = 'ESP="Marca Vehículo",PTG="Marca de veículo"';
+            DataClassification = CustomerContent;
+        }
+        field(190; "Vehicle Model"; Text[60])
+        {
+            Caption = 'Vehicle Model', comment = 'ESP="Modelo Vehículo",PTG="Model veículo"';
+            DataClassification = CustomerContent;
+        }
+        field(195; "Registration date"; Date)
+        {
+            Caption = 'Registration date', comment = 'ESP="Fecha matriculación",PTG="Data de registo"';
+            DataClassification = CustomerContent;
+        }
+        field(200; "Frame No."; Text[30])
+        {
+            Caption = 'Frame No.', comment = 'ESP="Nº bastidor",PTG="Nº moldura"';
+            DataClassification = CustomerContent;
+        }
+        field(205; "Vehicle total km."; Integer)
+        {
+            Caption = 'Vehicle total km.', comment = 'ESP="Km. totales vehículo",PTG="Total quilómetros veículo"';
+            DataClassification = CustomerContent;
+        }
+        field(210; Subscriber; Decimal)
+        {
+            Caption = 'Subscriber', comment = 'ESP="Abonado",PTG="Assinante"';
+            DataClassification = CustomerContent;
+        }
+        field(215; "Received in NLLE"; Boolean)
+        {
+            Caption = 'Received in NLLE', comment = 'ESP="Recibido en NLLE",PTG="Recebido NLLE"';
+            DataClassification = CustomerContent;
+        }
+        field(220; "Management with incidence"; Boolean)
+        {
+            Caption = 'Management with incidence', comment = 'ESP="Gestión con incidencia",PTG="Gestão con incidência"';
+            DataClassification = CustomerContent;
+        }
+        field(225; "Claim Status"; Boolean)
+        {
+            Caption = 'Claim Status', comment = 'ESP="Estado reclamación",PTG="Estado de Reivindicação"';
+            DataClassification = CustomerContent;
+        }
+        field(230; "Shipment Address"; Code[10])
+        {
+            Caption = 'Shipment Address', comment = 'ESP="Dirección de envío",PTG="Endereço de envio"';
+            DataClassification = CustomerContent;
+        }
+        field(235; Status; Enum "Claim Status")
+        {
+            Caption = 'Status', comment = 'ESP="Estado",PTG="Status"';
+            DataClassification = CustomerContent;
+        }
+        field(240; "Customer Account"; Code[10])
+        {
+            Caption = 'Customer Account', comment = 'ESP="Cta. Cliente",PTG="Cta Cliente"';
+            DataClassification = CustomerContent;
+        }
+        field(245; "Associated Claim No."; Integer)
+        {
+            Caption = 'Associated Claim No.', comment = 'ESP="Nº Reclamación vinculada",PTG="Nº Reclamação ligado"';
+            DataClassification = CustomerContent;
+        }
+        field(250; "Warranty Observations"; Text[100])
+        {
+            Caption = 'Warranty Observations', comment = 'ESP="Observaciones garantías",PTG="Observaçoes garantias"';
+            DataClassification = CustomerContent;
+        }
     }
 
     keys
@@ -227,20 +317,4 @@ table 50320 "Claims"
             "Reclamation date" := WorkDate();
 
     end;
-
-    trigger OnModify()
-    begin
-
-    end;
-
-    trigger OnDelete()
-    begin
-
-    end;
-
-    trigger OnRename()
-    begin
-
-    end;
-
 }

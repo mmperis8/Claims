@@ -117,6 +117,216 @@
           <note from="Xliff Generator" annotates="general" priority="3">Table Claims - Field Vendor Account - Property Caption</note>
           <target>Cta Proveedor</target>
         </trans-unit>
+        <trans-unit id="Table 2860450491 - Field 2161572060 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Location Code</source>
+          <note from="Developer" annotates="general" priority="2">ESP="Cód. Almacén",PTG="Cód. Almacén"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Claims - Field Location Code - Property Caption</note>
+          <target>Cód. Almacén</target>
+        </trans-unit>
+        <trans-unit id="Table 2860450491 - Field 481545316 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Vehicle Type</source>
+          <note from="Developer" annotates="general" priority="2">ESP="Tipo Vehiculo",PTG="Tipo de veículo"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Claims - Field Vehicle Type - Property Caption</note>
+          <target>Tipo Vehiculo</target>
+        </trans-unit>
+        <trans-unit id="Table 2860450491 - Field 3903865900 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Coordinator Review</source>
+          <note from="Developer" annotates="general" priority="2">ESP="Rev. Coordinador",PTG="Rev. Coordenador"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Claims - Field Coordinator Review - Property Caption</note>
+          <target>Rev. Coordinador</target>
+        </trans-unit>
+        <trans-unit id="Table 2860450491 - Field 1351383056 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Coordinator Review Date</source>
+          <note from="Developer" annotates="general" priority="2">ESP="Fecha Revisión Coor.",PTG="Data de Revisão Coor."</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Claims - Field Coordinator Review Date - Property Caption</note>
+          <target>Fecha Revisión Coor.</target>
+        </trans-unit>
+        <trans-unit id="Table 2860450491 - Field 1282486951 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Manufacturer Review</source>
+          <note from="Developer" annotates="general" priority="2">ESP="Rev. Fabricante",PTG="Rev. Fabricante"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Claims - Field Manufacturer Review - Property Caption</note>
+          <target>Rev. Fabricante</target>
+        </trans-unit>
+        <trans-unit id="Table 2860450491 - Field 889991371 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Manufacturer Review Date</source>
+          <note from="Developer" annotates="general" priority="2">ESP="Fecha Revisión Fabr.",PTG="Fecha Revisión Fabr."</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Claims - Field Manufacturer Review Date - Property Caption</note>
+          <target>Fecha Revisión Fabr.</target>
+        </trans-unit>
+        <trans-unit id="Table 2860450491 - Field 3133801257 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Company</source>
+          <note from="Developer" annotates="general" priority="2">ESP="Empresa",PTG="Empresa"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Claims - Field Company - Property Caption</note>
+          <target>Empresa</target>
+        </trans-unit>
+        <trans-unit id="Table 2860450491 - Field 1814464443 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>User</source>
+          <note from="Developer" annotates="general" priority="2">ESP="Usuario",PTG="Usuario"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Claims - Field User - Property Caption</note>
+          <target>Usuario</target>
+        </trans-unit>
+        <trans-unit id="Table 2860450491 - Field 1582882554 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Record Insert Date</source>
+          <note from="Developer" annotates="general" priority="2">ESP="Fecha Ins. Reg.",PTG="Fecha Ins. Reg."</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Claims - Field Record Insert Date - Property Caption</note>
+          <target>Fecha Ins. Reg.</target>
+        </trans-unit>
+        <trans-unit id="Table 2860450491 - Field 633051610 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Family</source>
+          <note from="Developer" annotates="general" priority="2">ESP="Familia",PTG="Familia"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Claims - Field Family - Property Caption</note>
+          <target>Familia</target>
+        </trans-unit>
+        <trans-unit id="Table 2860450491 - Field 3011597373 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Brand</source>
+          <note from="Developer" annotates="general" priority="2">ESP="Marca",PTG="Marca"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Claims - Field Brand - Property Caption</note>
+          <target>Marca</target>
+        </trans-unit>
+        <trans-unit id="Table 2860450491 - Field 2842094365 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Item Description</source>
+          <note from="Developer" annotates="general" priority="2">ESP="Descripción producto",PTG="Descrição do produto"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Claims - Field Item Description - Property Caption</note>
+          <target>Descripción producto</target>
+        </trans-unit>
+        <trans-unit id="Table 2860450491 - Field 1171137197 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Customer Name</source>
+          <note from="Developer" annotates="general" priority="2">ESP="Nombre Cliente",PTG="Nome do cliente"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Claims - Field Customer Name - Property Caption</note>
+          <target>Nombre Cliente</target>
+        </trans-unit>
+        <trans-unit id="Table 2860450491 - Field 2155241318 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Factory Report</source>
+          <note from="Developer" annotates="general" priority="2">ESP="Dictamen Fabrica",PTG="Relatório de Fábrica"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Claims - Field Factory Report - Property Caption</note>
+          <target>Dictamen Fabrica</target>
+        </trans-unit>
+        <trans-unit id="Table 2860450491 - Field 2473677182 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Refusing Code</source>
+          <note from="Developer" annotates="general" priority="2">ESP="Cód. Rechazo",PTG="Cód. Rejeição"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Claims - Field Refusing Code - Property Caption</note>
+          <target>Cód. Rechazo</target>
+        </trans-unit>
+        <trans-unit id="Table 2860450491 - Field 1173069737 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Manufacturer AB Process</source>
+          <note from="Developer" annotates="general" priority="2">ESP="Proce. AB. Fabricante",PTG="Proce. AB. Fabricante"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Claims - Field Manufacturer AB Process - Property Caption</note>
+          <target>Proce. AB. Fabricante</target>
+        </trans-unit>
+        <trans-unit id="Table 2860450491 - Field 2267222455 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Exam Reason</source>
+          <note from="Developer" annotates="general" priority="2">ESP="Motivo Examen",PTG="Motivo Examen"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Claims - Field Exam Reason - Property Caption</note>
+          <target>Motivo Examen</target>
+        </trans-unit>
+        <trans-unit id="Table 2860450491 - Field 1211414682 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Demonstartions</source>
+          <note from="Developer" annotates="general" priority="2">ESP="Manifestaciones",PTG="Manifestações"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Claims - Field Demonstrations - Property Caption</note>
+          <target>Manifestaciones</target>
+        </trans-unit>
+        <trans-unit id="Table 2860450491 - Field 2706427974 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Housing Brand</source>
+          <note from="Developer" annotates="general" priority="2">ESP="Marca Carcasa",PTG="Marca Carcaça"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Claims - Field Housing Brand - Property Caption</note>
+          <target>Marca Carcasa</target>
+        </trans-unit>
+        <trans-unit id="Table 2860450491 - Field 1104461346 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Housing Model</source>
+          <note from="Developer" annotates="general" priority="2">ESP="Modelo Carcasa",PTG="Modelo Carcaça"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Claims - Field Housing Model - Property Caption</note>
+          <target>Modelo Carcasa</target>
+        </trans-unit>
+        <trans-unit id="Table 2860450491 - Field 2239377937 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>DOT</source>
+          <note from="Developer" annotates="general" priority="2">ESP="DOT",PTG="DOT"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Claims - Field DOT - Property Caption</note>
+          <target>DOT</target>
+        </trans-unit>
+        <trans-unit id="Table 2860450491 - Field 2013894789 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Vehicle Brand</source>
+          <note from="Developer" annotates="general" priority="2">ESP="Marca Vehículo",PTG="Marca de veículo"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Claims - Field Vehicle Brand - Property Caption</note>
+          <target>Marca Vehículo</target>
+        </trans-unit>
+        <trans-unit id="Table 2860450491 - Field 843158305 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Vehicle Model</source>
+          <note from="Developer" annotates="general" priority="2">ESP="Modelo Vehículo",PTG="Model veículo"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Claims - Field Vehicle Model - Property Caption</note>
+          <target>Modelo Vehículo</target>
+        </trans-unit>
+        <trans-unit id="Table 2860450491 - Field 1362051775 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Registration date</source>
+          <note from="Developer" annotates="general" priority="2">ESP="Fecha matriculación",PTG="Data de registo"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Claims - Field Registration date - Property Caption</note>
+          <target>Fecha matriculación</target>
+        </trans-unit>
+        <trans-unit id="Table 2860450491 - Field 1640984110 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Frame No.</source>
+          <note from="Developer" annotates="general" priority="2">ESP="Nº bastidor",PTG="Nº moldura"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Claims - Field Frame No. - Property Caption</note>
+          <target>Nº bastidor</target>
+        </trans-unit>
+        <trans-unit id="Table 2860450491 - Field 2089490886 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Vehicle total km.</source>
+          <note from="Developer" annotates="general" priority="2">ESP="Km. totales vehículo",PTG="Total quilómetros veículo"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Claims - Field Vehicle total km. - Property Caption</note>
+          <target>Km. totales vehículo</target>
+        </trans-unit>
+        <trans-unit id="Table 2860450491 - Field 3706603950 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Subscriber</source>
+          <note from="Developer" annotates="general" priority="2">ESP="Abonado",PTG="Assinante"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Claims - Field Subscriber - Property Caption</note>
+          <target>Abonado</target>
+        </trans-unit>
+        <trans-unit id="Table 2860450491 - Field 3026960885 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Received in NLLE</source>
+          <note from="Developer" annotates="general" priority="2">ESP="Recibido en NLLE",PTG="Recebido NLLE"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Claims - Field Received in NLLE - Property Caption</note>
+          <target>Recibido en NLLE</target>
+        </trans-unit>
+        <trans-unit id="Table 2860450491 - Field 4033995903 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Management with incidence</source>
+          <note from="Developer" annotates="general" priority="2">ESP="Gestión con incidencia",PTG="Gestão con incidência"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Claims - Field Management with incidence - Property Caption</note>
+          <target>Gestión con incidencia</target>
+        </trans-unit>
+        <trans-unit id="Table 2860450491 - Field 2560465946 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Claim Status</source>
+          <note from="Developer" annotates="general" priority="2">ESP="Estado reclamación",PTG="Estado de Reivindicação"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Claims - Field Claim Status - Property Caption</note>
+          <target>Estado reclamación</target>
+        </trans-unit>
+        <trans-unit id="Table 2860450491 - Field 1021276258 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Shipment Address</source>
+          <note from="Developer" annotates="general" priority="2">ESP="Dirección de envío",PTG="Endereço de envio"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Claims - Field Shipment Address - Property Caption</note>
+          <target>Dirección de envío</target>
+        </trans-unit>
+        <trans-unit id="Table 2860450491 - Field 513339096 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Status</source>
+          <note from="Developer" annotates="general" priority="2">ESP="Estado",PTG="Status"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Claims - Field Status - Property Caption</note>
+          <target>Estado</target>
+        </trans-unit>
+        <trans-unit id="Table 2860450491 - Field 331311447 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Customer Account</source>
+          <note from="Developer" annotates="general" priority="2">ESP="Cta. Cliente",PTG="Cta Cliente"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Claims - Field Customer Account - Property Caption</note>
+          <target>Cta. Cliente</target>
+        </trans-unit>
+        <trans-unit id="Table 2860450491 - Field 3184058927 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Associated Claim No.</source>
+          <note from="Developer" annotates="general" priority="2">ESP="Nº Reclamación vinculada",PTG="Nº Reclamação ligado"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Claims - Field Associated Claim No. - Property Caption</note>
+          <target>Nº Reclamación vinculada</target>
+        </trans-unit>
+        <trans-unit id="Table 2860450491 - Field 1034582127 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Warranty Observations</source>
+          <note from="Developer" annotates="general" priority="2">ESP="Observaciones garantías",PTG="Observaçoes garantias"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Claims - Field Warranty Observations - Property Caption</note>
+          <target>Observaciones garantías</target>
+        </trans-unit>
         <trans-unit id="Codeunit 1458396766 - Method 3372963587 - NamedType 1303806686" size-unit="char" translate="yes" xml:space="preserve">
           <source>There is no line in the original sales order to settle this claim</source>
           <note from="Developer" annotates="general" priority="2">ESP="No se encuentra línia en el pedido de venta origen para liquidar esta reclamación",PTG="Não há linha na ordem de venda original para resolver esta reclamação"</note>
@@ -283,6 +493,150 @@
           <note from="Developer" annotates="general" priority="2">ESP="Nº Reclamación",PTG="Nº Reivindicação"</note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension Purchase Line Claim - Field Claim No. - Property Caption</note>
           <target>Nº Reclamación</target>
+        </trans-unit>
+        <trans-unit id="Enum 2560465946 - EnumValue 1859318149 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Vendor Pending</source>
+          <note from="Developer" annotates="general" priority="2">ESP="Pte. Proveedor",PTG="Pte. Fornecedor"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum Claim Status - EnumValue Vendor Pending - Property Caption</note>
+          <target>Pte. Proveedor</target>
+        </trans-unit>
+        <trans-unit id="Enum 2560465946 - EnumValue 1955888751 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Documentation Pending</source>
+          <note from="Developer" annotates="general" priority="2">ESP="Pte. Documentación",PTG="Pte. Documentação"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum Claim Status - EnumValue Documentation Pending - Property Caption</note>
+          <target>Pte. Documentación</target>
+        </trans-unit>
+        <trans-unit id="Enum 2560465946 - EnumValue 55722192 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Logistics Pending</source>
+          <note from="Developer" annotates="general" priority="2">ESP="Pte. Logistica",PTG="Pte. Logistica"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum Claim Status - EnumValue Logistics Pending - Property Caption</note>
+          <target>Pte. Logistica</target>
+        </trans-unit>
+        <trans-unit id="Enum 2560465946 - EnumValue 1538524146 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Cr. Memo Receipt Pending</source>
+          <note from="Developer" annotates="general" priority="2">ESP="Pte. Recibir Abono",PTG="Pte. Receber Crédito"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum Claim Status - EnumValue Cr. Memo Receipt Pending - Property Caption</note>
+          <target>Pte. Recibir Abono</target>
+        </trans-unit>
+        <trans-unit id="Enum 2560465946 - EnumValue 2213254973 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Warranty Pending</source>
+          <note from="Developer" annotates="general" priority="2">ESP="Pte. Garantías",PTG="Pte. Garantiaas"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum Claim Status - EnumValue Warranty Pending - Property Caption</note>
+          <target>Pte. Garantías</target>
+        </trans-unit>
+        <trans-unit id="Enum 2267222455 - EnumValue 4220443988 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Irregular Wear</source>
+          <note from="Developer" annotates="general" priority="2">ESP="Desgaste Irregular",PTG="Desgaste Irregular"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum Exam Reason - EnumValue Irregular Wear - Property Caption</note>
+          <target>Desgaste Irregular</target>
+        </trans-unit>
+        <trans-unit id="Enum 2267222455 - EnumValue 3225435836 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Case Degradation</source>
+          <note from="Developer" annotates="general" priority="2">ESP="Degradación Carcasa",PTG="Degradação da carcaça"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum Exam Reason - EnumValue Case Degradation - Property Caption</note>
+          <target>Degradación Carcasa</target>
+        </trans-unit>
+        <trans-unit id="Enum 2267222455 - EnumValue 2677681457 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Heel Damage</source>
+          <note from="Developer" annotates="general" priority="2">ESP="Daños Talón",PTG="Dano Calcanhar"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum Exam Reason - EnumValue Heel Damage - Property Caption</note>
+          <target>Daños Talón</target>
+        </trans-unit>
+        <trans-unit id="Enum 2267222455 - EnumValue 2649788243 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Complaints Driving Behavior</source>
+          <note from="Developer" annotates="general" priority="2">ESP="Quejas Compor. Conducción",PTG="Queixas Comportamento de Condução"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum Exam Reason - EnumValue Complaints Driving Behavior - Property Caption</note>
+          <target>Quejas Compor. Conducción</target>
+        </trans-unit>
+        <trans-unit id="Enum 2267222455 - EnumValue 2898083471 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Explosion</source>
+          <note from="Developer" annotates="general" priority="2">ESP="Explosión",PTG="Explosão"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum Exam Reason - EnumValue Explosion - Property Caption</note>
+          <target>Explosión</target>
+        </trans-unit>
+        <trans-unit id="Enum 2267222455 - EnumValue 91631846 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Commercial Attention</source>
+          <note from="Developer" annotates="general" priority="2">ESP="Atención Comercial",PTG="Atenção Comercial"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum Exam Reason - EnumValue Commercial Attention - Property Caption</note>
+          <target>Atención Comercial</target>
+        </trans-unit>
+        <trans-unit id="Enum 2267222455 - EnumValue 419117521 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Others</source>
+          <note from="Developer" annotates="general" priority="2">ESP="Otros",PTG="Otros"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum Exam Reason - EnumValue Others - Property Caption</note>
+          <target>Otros</target>
+        </trans-unit>
+        <trans-unit id="Enum 481545316 - EnumValue 2916646967 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Tractor</source>
+          <note from="Developer" annotates="general" priority="2">ESP="Tractora",PTG="Tractora"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum Vehicle Type - EnumValue Tractor - Property Caption</note>
+          <target>Tractora</target>
+        </trans-unit>
+        <trans-unit id="Enum 481545316 - EnumValue 3583581781 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Truck</source>
+          <note from="Developer" annotates="general" priority="2">ESP="Camión",PTG="Camião"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum Vehicle Type - EnumValue Truck - Property Caption</note>
+          <target>Camión</target>
+        </trans-unit>
+        <trans-unit id="Enum 481545316 - EnumValue 2208405232 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Bus</source>
+          <note from="Developer" annotates="general" priority="2">ESP="Autocar",PTG="Autocarro"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum Vehicle Type - EnumValue Bus - Property Caption</note>
+          <target>Autocar</target>
+        </trans-unit>
+        <trans-unit id="Enum 481545316 - EnumValue 2512148697 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Semi Trailer</source>
+          <note from="Developer" annotates="general" priority="2">ESP="Semi Remolque",PTG="Semi-reboque"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum Vehicle Type - EnumValue Semi Trailer - Property Caption</note>
+          <target>Semi Remolque</target>
+        </trans-unit>
+        <trans-unit id="Enum 481545316 - EnumValue 2925361519 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Trailer</source>
+          <note from="Developer" annotates="general" priority="2">ESP="Remolque",PTG="Reboque"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum Vehicle Type - EnumValue Trailer - Property Caption</note>
+          <target>Remolque</target>
+        </trans-unit>
+        <trans-unit id="Enum 481545316 - EnumValue 3371745645 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Tourism</source>
+          <note from="Developer" annotates="general" priority="2">ESP="Turismo",PTG="Turismo"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum Vehicle Type - EnumValue Tourism - Property Caption</note>
+          <target>Turismo</target>
+        </trans-unit>
+        <trans-unit id="Enum 481545316 - EnumValue 1027171955 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Van</source>
+          <note from="Developer" annotates="general" priority="2">ESP="Camioneta",PTG="Camião"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum Vehicle Type - EnumValue Van - Property Caption</note>
+          <target>Camioneta</target>
+        </trans-unit>
+        <trans-unit id="Enum 481545316 - EnumValue 3222945722 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Motorbyke</source>
+          <note from="Developer" annotates="general" priority="2">ESP="Moto",PTG="Moto"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum Vehicle Type - EnumValue Motorbyke - Property Caption</note>
+          <target>Moto</target>
+        </trans-unit>
+        <trans-unit id="Enum 481545316 - EnumValue 1534809757 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Scooter</source>
+          <note from="Developer" annotates="general" priority="2">ESP="Scooter",PTG="Scooter"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum Vehicle Type - EnumValue Scooter - Property Caption</note>
+          <target>Scooter</target>
+        </trans-unit>
+        <trans-unit id="Enum 481545316 - EnumValue 2599372747 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Quad</source>
+          <note from="Developer" annotates="general" priority="2">ESP="Quad",PTG="Quad"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum Vehicle Type - EnumValue Quad - Property Caption</note>
+          <target>Quad</target>
+        </trans-unit>
+        <trans-unit id="Enum 481545316 - EnumValue 2979237001 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Off-Road</source>
+          <note from="Developer" annotates="general" priority="2">ESP="Todo Terreno",PTG="Todo o terreno"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum Vehicle Type - EnumValue OffRoad - Property Caption</note>
+          <target>Todo Terreno</target>
+        </trans-unit>
+        <trans-unit id="Enum 481545316 - EnumValue 419117521 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Others</source>
+          <note from="Developer" annotates="general" priority="2">ESP="Otros",PTG="Outros"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum Vehicle Type - EnumValue Others - Property Caption</note>
+          <target>Otros</target>
         </trans-unit>
       </group>
     </body>
