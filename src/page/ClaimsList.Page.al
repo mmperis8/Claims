@@ -15,6 +15,7 @@ page 50327 "Claims List"
                 field("No."; Rec."No.")
                 {
                     ApplicationArea = All;
+                    Editable = false;
                 }
                 field("Customer No."; Rec."Customer No.")
                 {
@@ -94,17 +95,22 @@ page 50327 "Claims List"
     trigger OnQueryClosePage(CloseAction: Action): Boolean
     var
         ExitBool: Boolean;
+        Claims: Record Claims;
     begin
         ExitBool := true;
-        if (Rec."Customer No." = '') Or (Rec."Wheel Item No." = '') Or
-        (Rec."Reclamation date" = 0D) Or
-        (Rec."Source No." = '') Or (Rec."Plaque Code" = '') then begin
-            ExitBool := false;
-            Error(NoReclamationErr);
-        end;
+        Clear(Claims);
+        if Claims.FindSet() then
+            repeat
+                if (Claims."Customer No." = '') Or (Claims."Wheel Item No." = '') Or
+                (Claims."Reclamation date" = 0D) Or
+                (Claims."Source No." = '') then begin
+                    ExitBool := false;
+                    Error(NoReclamationErr, Claims."No.");
+                end;
+            until (Claims.Next() = 0) or not (ExitBool);
         exit(ExitBool);
     end;
 
     var
-        NoReclamationErr: Label 'You must enter the information about the claim', comment = 'ESP="Debe introducir la informacion sobre la reclamación",PTG="Deve introduzir as informações sobre a reclamação"';
+        NoReclamationErr: Label 'You must enter the information about the claim %1', comment = 'ESP="Debe introducir la informacion sobre la reclamación %1",PTG="Deve introduzir as informações sobre a reclamação %1"';
 }

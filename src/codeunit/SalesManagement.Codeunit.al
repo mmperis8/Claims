@@ -48,12 +48,14 @@ codeunit 50321 "Sales Management"
                     end;
     end;
 
-    [EventSubscriber(ObjectType::Page, Page::"Sales Order Subform", 'OnAfterValidateEvent', 'No.', false, false)]
+    [EventSubscriber(ObjectType::Table, Database::"Sales Line", 'OnAfterValidateEvent', 'No.', false, false)]
     local procedure OnAfterValidateNoSalesOrderSub(var Rec: Record "Sales Line"; var xRec: Record "Sales Line")
     var
         GLAccount: Record "G/L Account";
         ClaimingAccErr: Label 'The specified account is meant to be used on the claims process', comment = 'ESP="La cuenta especificada está pensada para usarse en el circuito de reclamaciones",PTG="A conta especificada destina-se a ser utilizada no circuito de reclamações"';
     begin
+        if Rec."Document Type" <> Rec."Document Type"::Order then
+            exit;
         if Rec.Type = Rec.Type::"G/L Account" then
             if GLAccount.Get(Rec."No.") then
                 if GLAccount."Claiming Account" then
@@ -75,7 +77,7 @@ codeunit 50321 "Sales Management"
                 if Claims.FindFirst() then
                     if (Claims."Customer No." = '') Or (Claims."Wheel Item No." = '') Or
                     (Claims."Reclamation date" = 0D) Or
-                    (Claims."Source No." = '') Or (Claims."Plaque Code" = '') then
+                    (Claims."Source No." = '') then
                         Error(NoReclamationErr);
             until SalesCrMemoLine.Next() = 0;
     end;

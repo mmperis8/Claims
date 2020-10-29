@@ -314,8 +314,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Claims List - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3463626789 - NamedType 1389818255" size-unit="char" translate="yes" xml:space="preserve">
-          <source>You must enter the information about the claim</source>
-          <note from="Developer" annotates="general" priority="2">ESP="Debe introducir la informacion sobre la reclamación",PTG="Deve introduzir as informações sobre a reclamação"</note>
+          <source>You must enter the information about the claim %1</source>
+          <note from="Developer" annotates="general" priority="2">ESP="Debe introducir la informacion sobre la reclamación %1",PTG="Deve introduzir as informações sobre a reclamação %1"</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Claims List - NamedType NoReclamationErr</note>
         </trans-unit>
         <trans-unit id="Page 3155018263 - Property 2019332006" size-unit="char" translate="yes" xml:space="preserve">
