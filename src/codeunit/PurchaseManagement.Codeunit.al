@@ -4,15 +4,19 @@ codeunit 50320 "Purchase Management"
     local procedure OnBeforePostLines(PurchHeader: Record "Purchase Header")
     var
         PurchLine: Record "Purchase Line";
+        GLAccount: Record "G/L Account";
     begin
         if not (PurchHeader."Document Type" = PurchHeader."Document Type"::"Credit Memo") then
             exit;
 
+        PurchLine.SetRange("Document Type", PurchHeader."Document Type");
         PurchLine.SetRange("Document No.", PurchHeader."No.");
+        PurchLine.SetRange(Type, PurchLine.Type::"G/L Account");
         if PurchLine.FindSet() then
             repeat
-                if PurchLine."Claim No." = 0 then
-                    Error(NoClaimErr);
+                if (GLAccount.Get(PurchLine."No.")) and (GLAccount."Claiming Account") then
+                    if PurchLine."Claim No." = 0 then
+                        Error(NoClaimErr);
             until PurchLine.Next() = 0;
 
     end;
@@ -27,6 +31,7 @@ codeunit 50320 "Purchase Management"
         if PurchaseHeader."Document Type" <> PurchaseHeader."Document Type"::"Credit Memo" then
             exit;
 
+        PurchaseLine.SetRange("Document Type", PurchaseHeader."Document Type");
         PurchaseLine.SetRange("Document No.", PurchaseHeader."No.");
         PurchaseLine.SetRange(Type, PurchaseLine.Type::"G/L Account");
         if PurchaseLine.FindSet() then
