@@ -9,7 +9,7 @@ pageextension 50321 "Sales Order Claims" extends "Sales Order"
                 Caption = 'Create claims', comment = 'ESP="Crear reclamación",PTG="Criar reclamação"';
                 ApplicationArea = All;
                 Promoted = true;
-                PromotedCategory = Category10;
+                PromotedCategory = Process;
                 Image = EntriesList;
 
                 trigger OnAction()
