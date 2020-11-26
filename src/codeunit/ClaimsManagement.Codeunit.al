@@ -2,6 +2,7 @@ codeunit 50322 "Claims Management"
 {
     procedure CreateClaim(var SalesHeader: Record "Sales Header")
     begin
+
         SalesHeader.TESTFIELD("Document Type", SalesHeader."Document Type"::Order);
         SalesHeader.TESTFIELD("Sell-to Customer No.");
         SalesHeader.TESTFIELD("Plaque code");
