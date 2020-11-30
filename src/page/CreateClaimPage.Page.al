@@ -77,6 +77,33 @@ page 50328 "Create Claim Page"
                     ApplicationArea = All;
                     TableRelation = Item;
                     ShowMandatory = true;
+
+                    trigger OnLookup(var Text: Text): Boolean
+                    var
+                        Item: Record Item;
+                        SalesLine: Record "Sales Line";
+                        FamilyCode: Code[20];
+                        ItemList: Page "Item List";
+                    begin
+                        SalesLine.SetRange("Document Type", Rec."Document Type");
+                        SalesLine.SetRange("Document No.", Rec."No.");
+                        SalesLine.SetRange(Type, SalesLine.Type::Item);
+                        if SalesLine.FindFirst() then
+                            if Item.Get(SalesLine."No.") then
+                                FamilyCode := Item.Family;
+                        Clear(Item);
+                        Item.FilterGroup(2);
+                        Item.SetRange(Family, FamilyCode);
+                        Item.FilterGroup(0);
+                        Clear(ItemList);
+                        ItemList.SetTableView(Item);
+                        ItemList.LookupMode(true);
+                        ItemList.Editable(false);
+                        if ItemList.RunModal() = Action::LookupOK then begin
+                            ItemList.GetRecord(Item);
+                            WheelItemNo := Item."No.";
+                        end;
+                    end;
                 }
                 field(M_E; M_E)
                 {

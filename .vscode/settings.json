@@ -3,7 +3,8 @@
     "al.codeAnalyzers": [
         "${CodeCop}",
         "${UICop}",
-        "${AppSourceCop}"
+        "${AppSourceCop}",
+        "${PerTenantExtensionCop}"
     ],
     "al.ruleSetPath": ".vscode/olivia.ruleset.json",
     "CRS.FileNamePattern": "<ObjectNameShort>.<ObjectTypeShortPascalCase>.al",
