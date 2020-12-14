@@ -398,6 +398,11 @@
           <note from="Developer" annotates="general" priority="2">ESP="Lista de reclamaciones",PTG="Lista de reclamações"</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Create Claim Page - Action ClaimList - Property Caption</note>
         </trans-unit>
+        <trans-unit id="PageExtension 621778418 - Action 3461998260 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1708100201">
+          <source>Claim List</source>
+          <note from="Developer" annotates="general" priority="2">ESP="Lista de reclamaciones",PTG=""</note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Sales Credit Memo Claims - Action ClaimList - Property Caption</note>
+        </trans-unit>
         <trans-unit id="PageExtension 894292065 - Action 1229219799 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1673401186">
           <source>Create claims</source>
           <note from="Developer" annotates="general" priority="2">ESP="Crear reclamación",PTG="Criar reclamação"</note>
