@@ -18,7 +18,7 @@ codeunit 50321 "Sales Management"
         SalesLine."Applied warranty to Line No." := TempSalesLine."Applied warranty to Line No.";
     end;
 
-    [EventSubscriber(ObjectType::Page, Page::"Sales Cr. Memo Subform", 'OnAfterValidateEvent', 'No.', false, false)]
+    [EventSubscriber(ObjectType::Table, Database::"Sales Line", 'OnAfterValidateEvent', 'No.', false, false)]
     local procedure OnAfterValidateNoSalesCrMemSubform(var Rec: Record "Sales Line"; var xRec: Record "Sales Line")
     var
         SalesHeader: Record "Sales Header";
@@ -27,6 +27,9 @@ codeunit 50321 "Sales Management"
         ClaimingAccMsg: Label 'The specified account is going to create a claim, do you wish to continue?', comment = 'ESP="La cuenta especificada creará una reclamación, desea continuar?",PTG="A conta especificada irá criar uma reclamação, gostaria de continuar?"';
         ClaimingAccErr: Label 'The specified account is meant to be used on the claims process', comment = 'ESP="La cuenta especificada está pensada para usarse en el circuito de reclamaciones",PTG="A conta especificada destina-se a ser utilizada no circuito de reclamações"';
     begin
+        if Rec."Document Type" <> Rec."Document Type"::"Credit Memo" then
+            exit;
+
         if Rec.Type = Rec.Type::"G/L Account" then
             if GLAccount.Get(Rec."No.") then
                 if GLAccount."Claiming Account" then
