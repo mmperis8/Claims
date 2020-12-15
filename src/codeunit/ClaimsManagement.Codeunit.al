@@ -5,7 +5,6 @@ codeunit 50322 "Claims Management"
 
         SalesHeader.TESTFIELD("Document Type", SalesHeader."Document Type"::Order);
         SalesHeader.TESTFIELD("Sell-to Customer No.");
-        SalesHeader.TESTFIELD("Plaque code");
 
         SalesHeader.FilterGroup(6);
         SalesHeader.setrange("No.", SalesHeader."No.");
