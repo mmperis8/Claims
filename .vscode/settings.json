@@ -1,5 +1,5 @@
 {
-    "al.defaultLaunchConfigurationName": "Your own server",
+    "al.defaultLaunchConfigurationName": "DEV",
     "al.codeAnalyzers": [
         "${CodeCop}",
         "${UICop}",

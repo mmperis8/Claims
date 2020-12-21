@@ -3,7 +3,7 @@ codeunit 50322 "Claims Management"
     procedure CreateClaim(var SalesHeader: Record "Sales Header")
     begin
 
-        SalesHeader.TESTFIELD("Document Type", SalesHeader."Document Type"::Order);
+        SalesHeader.TESTFIELD("Document Type", SalesHeader."Document Type"::Order.AsInteger());
         SalesHeader.TESTFIELD("Sell-to Customer No.");
 
         SalesHeader.FilterGroup(6);

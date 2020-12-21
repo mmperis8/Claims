@@ -82,8 +82,8 @@ page 50328 "Create Claim Page"
                     var
                         Item: Record Item;
                         SalesLine: Record "Sales Line";
-                        FamilyCode: Code[20];
                         ItemList: Page "Item List";
+                        FamilyCode: Code[20];
                     begin
                         SalesLine.SetRange("Document Type", Rec."Document Type");
                         SalesLine.SetRange("Document No.", Rec."No.");

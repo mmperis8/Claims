@@ -94,8 +94,8 @@ page 50327 "Claims List"
     }
     trigger OnQueryClosePage(CloseAction: Action): Boolean
     var
-        ExitBool: Boolean;
         Claims: Record Claims;
+        ExitBool: Boolean;
     begin
         ExitBool := true;
         Clear(Claims);
