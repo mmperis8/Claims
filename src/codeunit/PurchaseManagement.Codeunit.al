@@ -15,7 +15,7 @@ codeunit 50320 "Purchase Management"
         if PurchLine.FindSet() then
             repeat
                 if (GLAccount.Get(PurchLine."No.")) and (GLAccount."Claiming Account") then
-                    if PurchLine."Claim No." = 0 then
+                    if PurchLine."Claim No." = '' then
                         Error(NoClaimErr);
             until PurchLine.Next() = 0;
 
@@ -65,5 +65,4 @@ codeunit 50320 "Purchase Management"
 
     var
         NoClaimErr: Label 'You must specifie a claim no. on line %1', comment = 'ESP="Debe indicar el número de reclamación en la línea %1",PTG="Deve introduzir o número da reclamação na linha %1"';
-
 }

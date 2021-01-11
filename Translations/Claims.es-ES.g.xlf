@@ -476,6 +476,12 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Create Claim Page - Action ClaimList - Property Caption</note>
           <target>Lista de reclamaciones</target>
         </trans-unit>
+        <trans-unit id="TableExtension 2469528730 - Field 811536386 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 4145206282">
+          <source>Claim No.</source>
+          <note from="Developer" annotates="general" priority="2">ESP="Nº Reclamación",PTG="Nº Reivindicação"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Claims Sales Setup - Field Claim Nos. - Property Caption</note>
+          <target>Nº Reclamación</target>
+        </trans-unit>
         <trans-unit id="PageExtension 621778418 - Action 3461998260 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1708100201">
           <source>Claim List</source>
           <note from="Developer" annotates="general" priority="2">ESP="Lista de reclamaciones",PTG=""</note>

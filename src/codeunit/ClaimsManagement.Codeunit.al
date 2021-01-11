@@ -3,22 +3,18 @@ codeunit 50322 "Claims Management"
     procedure CreateClaim(var SalesHeader: Record "Sales Header")
     begin
 
-        SalesHeader.TESTFIELD("Document Type", SalesHeader."Document Type"::Order.AsInteger());
-        SalesHeader.TESTFIELD("Sell-to Customer No.");
+        SalesHeader.TestField("Document Type", SalesHeader."Document Type"::Order.AsInteger());
+        SalesHeader.TestField("Sell-to Customer No.");
 
         SalesHeader.FilterGroup(6);
-        SalesHeader.setrange("No.", SalesHeader."No.");
+        SalesHeader.Setrange("No.", SalesHeader."No.");
         SalesHeader.FilterGroup(0);
         commit();
         Page.RunModal(PAGE::"Create Claim Page", SalesHeader);
 
     end;
 
-    procedure CreateSalesCrMemo(Rec: Record "Sales Header"; AmountToCrMemo: Decimal; Account: Code[20]; WheelItemNo: Code[20];
-        M_E: Code[50];
-        Vehicle_KM: Integer;
-        Mm_Start: Decimal;
-        Mm_Substract: Decimal)
+    procedure CreateSalesCrMemo(Rec: Record "Sales Header"; AmountToCrMemo: Decimal; Account: Code[20]; WheelItemNo: Code[20]; M_E: Code[50]; Vehicle_KM: Integer; Mm_Start: Decimal; Mm_Substract: Decimal)
     var
         SalesCrMemoHeader: Record "Sales Header";
         SalesCrMemoLine: Record "Sales Line";
@@ -82,20 +78,15 @@ codeunit 50322 "Claims Management"
 
     end;
 
-    local procedure CreateClaimRecord(Rec: Record "Sales Header"; Account: Code[20]; WheelItemNo: Code[20];
-        M_E: Code[50];
-        Vehicle_KM: Integer;
-        Mm_Start: Decimal;
-        Mm_Substract: Decimal; SalesCrMemoLine: Record "Sales Line")
+    local procedure CreateClaimRecord(Rec: Record "Sales Header"; Account: Code[20]; WheelItemNo: Code[20]; M_E: Code[50]; Vehicle_KM: Integer; Mm_Start: Decimal; Mm_Substract: Decimal; SalesCrMemoLine: Record "Sales Line")
     var
         Claims: Record Claims;
         GLAccount: Record "G/L Account";
     begin
-
         if Account = '' then
             exit;
 
-        if GLAccount.GET(Account) then
+        if GLAccount.Get(Account) then
             if not GLAccount."Claiming Account" then
                 exit;
 

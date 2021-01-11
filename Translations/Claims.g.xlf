@@ -273,6 +273,26 @@
           <note from="Developer" annotates="general" priority="2">ESP="Observaciones garantías",PTG="Observaçoes garantias"</note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Claims - Field Warranty Observations - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 4242499010 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Claims Setup</source>
+          <note from="Developer" annotates="general" priority="2">ESP="Conf. reclamaciones"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Claims Setup - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 4242499010 - Field 1663593181 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Primary Key</source>
+          <note from="Developer" annotates="general" priority="2">ESP="Clave Primaria"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Claims Setup - Field Primary Key - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 4242499010 - Field 811536386 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Claim No.</source>
+          <note from="Developer" annotates="general" priority="2">ESP="Nº Reclamación",PTG="Nº Reivindicação"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Claims Setup - Field Claim Nos. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 4242499010 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Claims Setup</source>
+          <note from="Developer" annotates="general" priority="2">ESP="Configuración Reclamaciones"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Claims Setup - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Codeunit 1458396766 - Method 3372963587 - NamedType 1303806686" size-unit="char" translate="yes" xml:space="preserve">
           <source>There is no line in the original sales order to settle this claim</source>
           <note from="Developer" annotates="general" priority="2">ESP="No se encuentra línia en el pedido de venta origen para liquidar esta reclamación",PTG="Não há linha na ordem de venda original para resolver esta reclamação"</note>

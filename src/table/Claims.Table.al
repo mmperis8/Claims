@@ -6,7 +6,7 @@ table 50320 "Claims"
 
     fields
     {
-        field(1; "No."; Integer)
+        field(1; "No."; Code[20])
         {
             Caption = 'No.', comment = 'ESP="Nº",PTG="Nº"';
             DataClassification = CustomerContent;
@@ -304,17 +304,16 @@ table 50320 "Claims"
 
     trigger OnInsert()
     var
-        Claims: Record Claims;
+        ClaimSetup: Record "Claims Setup";
+        NoSeriesMgt: Codeunit NoSeriesManagement;
     begin
-
-        Clear(Claims);
-        if Claims.FindLast() then
-            "No." := Claims."No." + 1
-        else
-            "No." := 1;
+        if "No." = '' then begin
+            ClaimSetup.Get();
+            ClaimSetup.TestField("Claim Nos.");
+            "No." := NoSeriesMgt.GetNextNo(ClaimSetup."Claim Nos.", Today(), true);
+        end;
 
         if "Reclamation date" = 0D then
             "Reclamation date" := WorkDate();
-
     end;
 }
