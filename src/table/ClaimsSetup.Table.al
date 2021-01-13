@@ -15,7 +15,7 @@ table 50321 "Claims Setup"
         {
             DataClassification = CustomerContent;
             Caption = 'Claim No.', comment = 'ESP="Nº Reclamación",PTG="Nº Reivindicação"';
-            TableRelation = Claims."No.";
+            TableRelation = "No. Series";
         }
     }
 
