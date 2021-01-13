@@ -328,6 +328,12 @@
           <note from="Xliff Generator" annotates="general" priority="3">Table Claims - Field Warranty Observations - Property Caption</note>
           <target>Observaciones garantías</target>
         </trans-unit>
+        <trans-unit id="Table 2860450491 - Field 166625219 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Tire Id.</source>
+          <note from="Developer" annotates="general" priority="2">ESP="Matrícula cubierta",PTG="Id. pneu"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Claims - Field Tire Id. - Property Caption</note>
+          <target>Matrícula cubierta</target>
+        </trans-unit>
         <trans-unit id="Table 4242499010 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Claims Setup</source>
           <note from="Developer" annotates="general" priority="2">ESP="Conf. reclamaciones"</note>
@@ -447,6 +453,12 @@
           <note from="Developer" annotates="general" priority="2">ESP="Nº producto rueda",PTG="N.º do produto roda"</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Create Claim Page - Control WheelItemNo - Property Caption</note>
           <target>Nº producto rueda</target>
+        </trans-unit>
+        <trans-unit id="Page 3155018263 - Control 1557010433 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Tire Id.</source>
+          <note from="Developer" annotates="general" priority="2">ESP="Matrícula cubierta",PTG="Id. pneu"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Create Claim Page - Control TireId - Property Caption</note>
+          <target>Matrícula cubierta</target>
         </trans-unit>
         <trans-unit id="Page 3155018263 - Control 1205362873 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>M.E</source>
