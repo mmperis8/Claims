@@ -59,6 +59,7 @@ codeunit 50322 "Claims Management"
             Error(NoLineErr);
 
         Clear(SalesCrMemoLine);
+        SalesCrMemoLine.SetHideValidationDialog(true);
         SalesCrMemoLine.Init();
         SalesCrMemoLine."Document No." := SalesCrMemoHeader."No.";
         SalesCrMemoLine."Document Type" := SalesCrMemoHeader."Document Type";
@@ -90,11 +91,9 @@ codeunit 50322 "Claims Management"
             if not GLAccount."Claiming Account" then
                 exit;
 
-
-        Claims.Reset();
-        Claims.SetRange("Source No.", SalesCrMemoLine."Applied warranty to Doc. No.");
-        Claims.SetRange("Source Line No.", SalesCrMemoLine."Applied warranty to Line No.");
-        Claims.FindSet();
+        Claims.Init();
+        Claims."Source No." := SalesCrMemoLine."Applied warranty to Doc. No.";
+        Claims."Source Line No." := SalesCrMemoLine."Applied warranty to Line No.";
         Claims."Customer No." := Rec."Sell-to Customer No.";
         Claims."Reclamation date" := WorkDate();
         Claims."Wheel Item No." := WheelItemNo;
@@ -104,6 +103,7 @@ codeunit 50322 "Claims Management"
         Claims."Mm. Start" := Mm_Start;
         Claims."Mm. Substract" := Mm_Substract;
         Claims.Insert(true);
+        Page.Run(Page::"Claims List", Claims);
     end;
 
 }

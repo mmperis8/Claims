@@ -33,22 +33,23 @@ codeunit 50321 "Sales Management"
         if Rec.Type = Rec.Type::"G/L Account" then
             if GLAccount.Get(Rec."No.") then
                 if GLAccount."Claiming Account" then
-                    if not Confirm(ClaimingAccMsg) then
-                        Error(ClaimingAccErr)
-                    else begin
-                        SalesHeader.Get(Rec."Document Type", Rec."Document No.");
-                        Claims.Init();
-                        Claims."Source No." := Rec."Document No.";
-                        if Claims."Source Line No." = 0 then
-                            Claims."Source Line No." := 10000
-                        else
-                            Claims."Source Line No." := Rec."Line No.";
-                        Claims."Customer No." := Rec."Sell-to Customer No.";
-                        Claims."Reclamation date" := WorkDate();
-                        Claims."Plaque Code" := SalesHeader."Plaque Code";
-                        Claims.Insert(true);
-                        Page.Run(Page::"Claims List", Claims);
-                    end;
+                    if not Rec.GetHideValidationDialog() then
+                        if not Confirm(ClaimingAccMsg) then
+                            Error(ClaimingAccErr)
+                        else begin
+                            SalesHeader.Get(Rec."Document Type", Rec."Document No.");
+                            Claims.Init();
+                            Claims."Source No." := Rec."Document No.";
+                            if Claims."Source Line No." = 0 then
+                                Claims."Source Line No." := 10000
+                            else
+                                Claims."Source Line No." := Rec."Line No.";
+                            Claims."Customer No." := Rec."Sell-to Customer No.";
+                            Claims."Reclamation date" := WorkDate();
+                            Claims."Plaque Code" := SalesHeader."Plaque Code";
+                            Claims.Insert(true);
+                            Page.Run(Page::"Claims List", Claims);
+                        end;
     end;
 
     [EventSubscriber(ObjectType::Table, Database::"Sales Line", 'OnAfterValidateEvent', 'No.', false, false)]
