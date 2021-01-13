@@ -292,6 +292,11 @@ table 50320 "Claims"
             Caption = 'Warranty Observations', comment = 'ESP="Observaciones garantías",PTG="Observaçoes garantias"';
             DataClassification = CustomerContent;
         }
+        field(255; "Tire Id."; Text[30])
+        {
+            Caption = 'Tire Id.', comment = 'ESP="Matrícula cubierta",PTG="Id. pneu"';
+            DataClassification = CustomerContent;
+        }
     }
 
     keys

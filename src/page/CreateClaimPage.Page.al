@@ -78,6 +78,13 @@ page 50328 "Create Claim Page"
                     TableRelation = Item;
                     ShowMandatory = true;
 
+                    trigger OnValidate()
+                    var
+                        Item: Record Item;
+                    begin
+                        Item.Get(WheelItemNo);
+                    end;
+
                     trigger OnLookup(var Text: Text): Boolean
                     var
                         Item: Record Item;
@@ -104,6 +111,11 @@ page 50328 "Create Claim Page"
                             WheelItemNo := Item."No.";
                         end;
                     end;
+                }
+                field(TireId; TireId)
+                {
+                    Caption = 'Tire Id.', comment = 'ESP="Matrícula cubierta",PTG="Id. pneu"';
+                    ApplicationArea = All;
                 }
                 field(M_E; M_E)
                 {
@@ -163,7 +175,7 @@ page 50328 "Create Claim Page"
                 begin
                     if (Account = '') Or (AmountToCrMemo = 0) Or (WheelItemNo = '') then
                         Error(EmptyFieldErr);
-                    ClaimsManagement.CreateSalesCrMemo(Rec, AmountToCrMemo, Account, WheelItemNo, M_E, Vehicle_KM, Mm_Start, Mm_Substract);
+                    ClaimsManagement.CreateSalesCrMemo(Rec, AmountToCrMemo, Account, WheelItemNo, M_E, Vehicle_KM, Mm_Start, Mm_Substract, TireId);
                     CurrPage.Close();
                 end;
             }
@@ -185,6 +197,7 @@ page 50328 "Create Claim Page"
         AmountToCrMemo: Decimal;
         Account: Code[20];
         WheelItemNo: Code[20];
+        TireId: Text[30];
         M_E: Code[50];
         Vehicle_KM: Integer;
         Mm_Start: Decimal;

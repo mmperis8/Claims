@@ -32,6 +32,11 @@ page 50327 "Claims List"
                     ApplicationArea = All;
                     NotBlank = true;
                 }
+                field("Tire Id."; "Tire Id.")
+                {
+                    ApplicationArea = All;
+                    NotBlank = true;
+                }
                 field("Reclamation date"; Rec."Reclamation date")
                 {
                     ApplicationArea = All;

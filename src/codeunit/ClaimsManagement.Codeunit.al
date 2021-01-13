@@ -14,7 +14,7 @@ codeunit 50322 "Claims Management"
 
     end;
 
-    procedure CreateSalesCrMemo(Rec: Record "Sales Header"; AmountToCrMemo: Decimal; Account: Code[20]; WheelItemNo: Code[20]; M_E: Code[50]; Vehicle_KM: Integer; Mm_Start: Decimal; Mm_Substract: Decimal)
+    procedure CreateSalesCrMemo(Rec: Record "Sales Header"; AmountToCrMemo: Decimal; Account: Code[20]; WheelItemNo: Code[20]; M_E: Code[50]; Vehicle_KM: Integer; Mm_Start: Decimal; Mm_Substract: Decimal; TireId: Text[30])
     var
         SalesCrMemoHeader: Record "Sales Header";
         SalesCrMemoLine: Record "Sales Line";
@@ -39,7 +39,7 @@ codeunit 50322 "Claims Management"
             SalesCrMemoHeader.Modify();
         end;
         CreateSalesCrMemoLine(Rec, SalesCrMemoHeader, AmountToCrMemo, Account, SalesCrMemoLine);
-        CreateClaimRecord(Rec, Account, WheelItemNo, M_E, Vehicle_KM, Mm_Start, Mm_Substract, SalesCrMemoLine);
+        CreateClaimRecord(Rec, Account, WheelItemNo, M_E, Vehicle_KM, Mm_Start, Mm_Substract, TireId, SalesCrMemoLine);
     end;
 
     local procedure CreateSalesCrMemoLine(Rec: Record "Sales Header"; SalesCrMemoHeader: Record "Sales Header"; AmountToCrMemo: Decimal; Account: Code[20]; var SalesCrMemoLine: Record "Sales Line")
@@ -79,7 +79,7 @@ codeunit 50322 "Claims Management"
 
     end;
 
-    local procedure CreateClaimRecord(Rec: Record "Sales Header"; Account: Code[20]; WheelItemNo: Code[20]; M_E: Code[50]; Vehicle_KM: Integer; Mm_Start: Decimal; Mm_Substract: Decimal; SalesCrMemoLine: Record "Sales Line")
+    local procedure CreateClaimRecord(Rec: Record "Sales Header"; Account: Code[20]; WheelItemNo: Code[20]; M_E: Code[50]; Vehicle_KM: Integer; Mm_Start: Decimal; Mm_Substract: Decimal; TireId: Text[30]; SalesCrMemoLine: Record "Sales Line")
     var
         Claims: Record Claims;
         GLAccount: Record "G/L Account";
@@ -102,6 +102,7 @@ codeunit 50322 "Claims Management"
         Claims."M.E" := M_E;
         Claims."Mm. Start" := Mm_Start;
         Claims."Mm. Substract" := Mm_Substract;
+        Claims."Tire Id." := TireId;
         Claims.Insert(true);
         Page.Run(Page::"Claims List", Claims);
     end;
