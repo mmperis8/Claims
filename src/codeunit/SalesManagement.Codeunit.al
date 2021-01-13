@@ -30,6 +30,8 @@ codeunit 50321 "Sales Management"
         if Rec."Document Type" <> Rec."Document Type"::"Credit Memo" then
             exit;
 
+        if Rec.GetHideValidationDialog() then
+            exit;
         if Rec.Type = Rec.Type::"G/L Account" then
             if GLAccount.Get(Rec."No.") then
                 if GLAccount."Claiming Account" then

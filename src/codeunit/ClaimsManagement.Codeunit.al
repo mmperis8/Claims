@@ -60,6 +60,7 @@ codeunit 50322 "Claims Management"
 
         Clear(SalesCrMemoLine);
         SalesCrMemoLine.Init();
+        SalesCrMemoLine.SetHideValidationDialog(true);
         SalesCrMemoLine."Document No." := SalesCrMemoHeader."No.";
         SalesCrMemoLine."Document Type" := SalesCrMemoHeader."Document Type";
         SalesCrMemoLine."Line No." := LineNo;
