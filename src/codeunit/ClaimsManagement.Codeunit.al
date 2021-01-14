@@ -18,10 +18,14 @@ codeunit 50322 "Claims Management"
     var
         SalesCrMemoHeader: Record "Sales Header";
         SalesCrMemoLine: Record "Sales Line";
+        ClaimSetup: Record "Claims Setup";
     begin
         Clear(SalesCrMemoHeader);
         SalesCrMemoHeader.SetRange("Applied warranty to Doc. No.", Rec."No.");
         if not SalesCrMemoHeader.FindFirst() then begin
+            ClaimSetup.Get();
+            ClaimSetup.TestField("Default Return Reason");
+
             Clear(SalesCrMemoHeader);
             SalesCrMemoHeader.Init();
             SalesCrMemoHeader.SetHideValidationDialog(true);
@@ -36,6 +40,7 @@ codeunit 50322 "Claims Management"
             SalesCrMemoHeader."Repair Responsible" := Rec."Repair Responsible";
             SalesCrMemoHeader."Plaque Code" := Rec."Plaque Code";
             SalesCrMemoHeader."Vehicle Kms." := Rec."Vehicle Kms.";
+            SalesCrMemoHeader."Return Reason Code" := ClaimSetup."Default Return Reason";
             SalesCrMemoHeader.Modify();
         end;
         CreateSalesCrMemoLine(Rec, SalesCrMemoHeader, AmountToCrMemo, Account, SalesCrMemoLine);
@@ -45,9 +50,13 @@ codeunit 50322 "Claims Management"
     local procedure CreateSalesCrMemoLine(Rec: Record "Sales Header"; SalesCrMemoHeader: Record "Sales Header"; AmountToCrMemo: Decimal; Account: Code[20]; var SalesCrMemoLine: Record "Sales Line")
     var
         SalesLine: Record "Sales Line";
+        ClaimSetup: Record "Claims Setup";
         LineNo: Integer;
         NoLineErr: Label 'There is no line in the original sales order to settle this claim', comment = 'ESP="No se encuentra línia en el pedido de venta origen para liquidar esta reclamación",PTG="Não há linha na ordem de venda original para resolver esta reclamação"';
     begin
+        ClaimSetup.Get();
+        ClaimSetup.TestField("Default Return Reason");
+
         LineNo := 10000;
         Clear(SalesCrMemoLine);
         SalesCrMemoLine.SetRange("Document No.", SalesCrMemoHeader."No.");
@@ -75,6 +84,7 @@ codeunit 50322 "Claims Management"
 
         SalesCrMemoLine."Applied warranty to Doc. No." := SalesLine."Document No.";
         SalesCrMemoLine."Applied warranty to Line No." := SalesLine."Line No.";
+        SalesCrMemoLine."Return Reason Code" := ClaimSetup."Default Return Reason";
         SalesCrMemoLine.Modify();
 
     end;

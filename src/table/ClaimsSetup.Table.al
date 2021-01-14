@@ -17,6 +17,12 @@ table 50321 "Claims Setup"
             Caption = 'Claim No.', comment = 'ESP="Nº Reclamación",PTG="Nº Reivindicação"';
             TableRelation = "No. Series";
         }
+        field(3; "Default Return Reason"; Code[10])
+        {
+            Caption = 'Default Return Reason', comment = 'ESP="Motivo devolución por defecto",PTG="Motivo devolução por defeito"';
+            DataClassification = OrganizationIdentifiableInformation;
+            TableRelation = "Return Reason";
+        }
     }
 
     keys

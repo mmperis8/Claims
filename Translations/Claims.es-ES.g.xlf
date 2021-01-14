@@ -352,6 +352,12 @@
           <note from="Xliff Generator" annotates="general" priority="3">Table Claims Setup - Field Claim Nos. - Property Caption</note>
           <target>Nº Reclamación</target>
         </trans-unit>
+        <trans-unit id="Table 4242499010 - Field 3452417439 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Default Return Reason</source>
+          <note from="Developer" annotates="general" priority="2">ESP="Motivo devolución por defecto",PTG="Motivo devolução por defeito"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Claims Setup - Field Default Return Reason - Property Caption</note>
+          <target>Motivo devolución por defecto</target>
+        </trans-unit>
         <trans-unit id="Page 4242499010 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Claims Setup</source>
           <note from="Developer" annotates="general" priority="2">ESP="Configuración Reclamaciones"</note>

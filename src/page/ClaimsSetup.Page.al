@@ -15,6 +15,10 @@ page 50335 "Claims Setup"
                 {
                     ApplicationArea = All;
                 }
+                field("Default Return Reason"; "Default Return Reason")
+                {
+                    ApplicationArea = All;
+                }
             }
         }
     }
