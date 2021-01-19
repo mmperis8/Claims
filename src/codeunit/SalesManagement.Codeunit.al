@@ -95,9 +95,11 @@ codeunit 50321 "Sales Management"
         if SalesHeader.Get(SalesHeader."Document Type"::Order, Rec."Order No.") then begin
             SalesCrMemoHeader.SetRange("Applied warranty to Doc. No.", Rec."Order No.");
             if SalesCrMemoHeader.FindFirst() then begin
-                SalesCrMemoHeader."Corrected Invoice No." := Rec."No.";
-                SalesCrMemoHeader."External Document No." := Rec."No.";
-                SalesCrMemoHeader.Modify();
+                if SalesCrMemoHeader."External Document No." = '' then begin
+                    SalesCrMemoHeader."Corrected Invoice No." := Rec."No.";
+                    SalesCrMemoHeader."External Document No." := Rec."No.";
+                    SalesCrMemoHeader.Modify();
+                end;
                 Codeunit.RUN(Codeunit::"Sales-Post", SalesCrMemoHeader);
             end;
         end;
