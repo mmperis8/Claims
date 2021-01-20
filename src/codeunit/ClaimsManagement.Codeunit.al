@@ -31,10 +31,10 @@ codeunit 50322 "Claims Management"
             SalesCrMemoHeader.SetHideValidationDialog(true);
 
             SalesCrMemoHeader."Document Type" := SalesCrMemoHeader."Document Type"::"Credit Memo";
+            SalesCrMemoHeader."Applied warranty to Doc. No." := Rec."No.";
             SalesCrMemoHeader.Validate("Sell-to Customer No.", Rec."Sell-to Customer No.");
             SalesCrMemoHeader.Insert(true);
 
-            SalesCrMemoHeader."Applied warranty to Doc. No." := Rec."No.";
             SalesCrMemoHeader.Status := SalesCrMemoHeader.Status::Open;
             SalesCrMemoHeader.Operator := Rec.Operator;
             SalesCrMemoHeader."Repair Responsible" := Rec."Repair Responsible";
