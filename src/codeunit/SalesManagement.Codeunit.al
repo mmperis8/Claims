@@ -98,6 +98,8 @@ codeunit 50321 "Sales Management"
                 if SalesCrMemoHeader."External Document No." = '' then begin
                     SalesCrMemoHeader."Corrected Invoice No." := Rec."No.";
                     SalesCrMemoHeader."External Document No." := Rec."No.";
+                    if SalesCrMemoHeader."Payment Method Code" = '' then
+                        SalesCrMemoHeader."Payment Method Code" := Rec."Payment Method Code";
                     SalesCrMemoHeader.Modify();
                 end;
                 Codeunit.RUN(Codeunit::"Sales-Post", SalesCrMemoHeader);
