@@ -92,6 +92,7 @@ page 50328 "Create Claim Page"
                         ItemList: Page "Item List";
                         FamilyCode: Code[20];
                     begin
+                        SalesLine.SetCurrentKey("Document Type", "Document No.", Type);
                         SalesLine.SetRange("Document Type", Rec."Document Type");
                         SalesLine.SetRange("Document No.", Rec."No.");
                         SalesLine.SetRange(Type, SalesLine.Type::Item);
@@ -100,6 +101,7 @@ page 50328 "Create Claim Page"
                                 FamilyCode := Item.Family;
                         Clear(Item);
                         Item.FilterGroup(2);
+                        Item.SetCurrentKey(Family);
                         Item.SetRange(Family, FamilyCode);
                         Item.FilterGroup(0);
                         Clear(ItemList);

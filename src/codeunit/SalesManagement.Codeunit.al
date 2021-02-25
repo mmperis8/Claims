@@ -72,6 +72,7 @@ codeunit 50321 "Sales Management"
         Claims: Record Claims;
         SalesCrMemoLine: Record "Sales Line";
     begin
+        SalesCrMemoLine.SetCurrentKey("Applied warranty to Doc. No.");
         SalesCrMemoLine.SetRange("Applied warranty to Doc. No.", SalesHeader."No.");
         if SalesCrMemoLine.Findset() then
             repeat
@@ -93,6 +94,7 @@ codeunit 50321 "Sales Management"
         SalesHeader: Record "Sales Header";
     begin
         if SalesHeader.Get(SalesHeader."Document Type"::Order, Rec."Order No.") then begin
+            SalesCrMemoHeader.SetCurrentKey("Applied warranty to Doc. No.");
             SalesCrMemoHeader.SetRange("Applied warranty to Doc. No.", Rec."Order No.");
             if SalesCrMemoHeader.FindFirst() then begin
                 if SalesCrMemoHeader."Payment Method Code" = '' then

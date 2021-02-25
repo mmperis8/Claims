@@ -21,8 +21,9 @@ codeunit 50322 "Claims Management"
         ClaimSetup: Record "Claims Setup";
     begin
         Clear(SalesCrMemoHeader);
+        SalesCrMemoHeader.SetCurrentKey("Applied warranty to Doc. No.");
         SalesCrMemoHeader.SetRange("Applied warranty to Doc. No.", Rec."No.");
-        if not SalesCrMemoHeader.FindFirst() then begin
+        if SalesCrMemoHeader.IsEmpty() then begin
             ClaimSetup.Get();
             ClaimSetup.TestField("Default Return Reason");
 

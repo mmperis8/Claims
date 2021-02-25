@@ -31,6 +31,7 @@ codeunit 50320 "Purchase Management"
         if PurchaseHeader."Document Type" <> PurchaseHeader."Document Type"::"Credit Memo" then
             exit;
 
+        PurchaseLine.SetCurrentKey("Document Type", "Document No.", Type);
         PurchaseLine.SetRange("Document Type", PurchaseHeader."Document Type");
         PurchaseLine.SetRange("Document No.", PurchaseHeader."No.");
         PurchaseLine.SetRange(Type, PurchaseLine.Type::"G/L Account");
