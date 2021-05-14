@@ -129,7 +129,6 @@ codeunit 50321 "Sales Management"
                 SalesCrMemoHeader.Modify();
                 Codeunit.RUN(Codeunit::"Sales-Post", SalesCrMemoHeader);
             end;
-            // end;
         end;
     end;
 
