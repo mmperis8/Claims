@@ -87,25 +87,49 @@ codeunit 50321 "Sales Management"
             until SalesCrMemoLine.Next() = 0;
     end;
 
-    [EventSubscriber(ObjectType::Table, Database::"Sales Invoice Header", 'OnAfterInsertEvent', '', false, false)]
-    local procedure OnAfterInsertSalesInvHdEvent(var Rec: Record "Sales Invoice Header")
+    // [EventSubscriber(ObjectType::Table, Database::"Sales Invoice Header", 'OnAfterInsertEvent', '', false, false)]
+    // local procedure OnAfterInsertSalesInvHdEvent(var Rec: Record "Sales Invoice Header")
+    // var
+    //     SalesCrMemoHeader: Record "Sales Header";
+    //     SalesHeader: Record "Sales Header";
+    // begin
+    //     if SalesHeader.Get(SalesHeader."Document Type"::Order, Rec."Order No.") then begin
+    //         SalesCrMemoHeader.SetCurrentKey("Applied warranty to Doc. No.");
+    //         SalesCrMemoHeader.SetRange("Applied warranty to Doc. No.", Rec."Order No.");
+    //         if SalesCrMemoHeader.FindFirst() then begin
+    //             if SalesCrMemoHeader."Payment Method Code" = '' then
+    //                 SalesCrMemoHeader."Payment Method Code" := Rec."Payment Method Code";
+    //             if SalesCrMemoHeader."External Document No." = '' then begin
+    //                 SalesCrMemoHeader."Corrected Invoice No." := Rec."No.";
+    //                 SalesCrMemoHeader."External Document No." := Rec."No.";
+    //             end;
+    //             SalesCrMemoHeader.Modify();
+    //             Codeunit.RUN(Codeunit::"Sales-Post", SalesCrMemoHeader);
+    //         end;
+    //     end;
+    // end;
+
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Sales-Post", 'OnAfterPostSalesDoc', '', true, true)]
+    local procedure ClaimsOnAfterPostSalesDoc(var SalesHeader: Record "Sales Header"; var GenJnlPostLine: Codeunit "Gen. Jnl.-Post Line"; SalesShptHdrNo: Code[20]; SalesInvHdrNo: Code[20]; SalesCrMemoHdrNo: Code[20]; RetRcpHdrNo: Code[20]; InvtPickPutaway: Boolean; CommitIsSuppressed: Boolean)
     var
         SalesCrMemoHeader: Record "Sales Header";
-        SalesHeader: Record "Sales Header";
+        SalesInvHdr: Record "Sales Invoice Header";
     begin
-        if SalesHeader.Get(SalesHeader."Document Type"::Order, Rec."Order No.") then begin
+        if SalesInvHdrNo <> '' then begin
+            SalesInvHdr.Get(SalesInvHdrNo);
             SalesCrMemoHeader.SetCurrentKey("Applied warranty to Doc. No.");
-            SalesCrMemoHeader.SetRange("Applied warranty to Doc. No.", Rec."Order No.");
+            SalesCrMemoHeader.SetRange("Applied warranty to Doc. No.", SalesInvHdr."Order No.");
             if SalesCrMemoHeader.FindFirst() then begin
                 if SalesCrMemoHeader."Payment Method Code" = '' then
-                    SalesCrMemoHeader."Payment Method Code" := Rec."Payment Method Code";
+                    SalesCrMemoHeader."Payment Method Code" := SalesInvHdr."Payment Method Code";
                 if SalesCrMemoHeader."External Document No." = '' then begin
-                    SalesCrMemoHeader."Corrected Invoice No." := Rec."No.";
-                    SalesCrMemoHeader."External Document No." := Rec."No.";
+                    SalesCrMemoHeader."Corrected Invoice No." := SalesInvHdr."No.";
+                    SalesCrMemoHeader."External Document No." := SalesInvHdr."No.";
                 end;
                 SalesCrMemoHeader.Modify();
                 Codeunit.RUN(Codeunit::"Sales-Post", SalesCrMemoHeader);
             end;
+            // end;
         end;
     end;
 
