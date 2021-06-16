@@ -343,6 +343,16 @@
           <note from="Developer" annotates="general" priority="2">ESP="Debe introducir la informacion sobre la reclamación %1",PTG="Deve introduzir as informações sobre a reclamação %1"</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Claims List - NamedType NoReclamationErr</note>
         </trans-unit>
+        <trans-unit id="Page 3463626789 - Action 190509817 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Print Blank Claim Sheet</source>
+          <note from="Developer" annotates="general" priority="2">ESP="Imprimir hoja reclamación en blanco",PTG="Imprimir folha reclamação em branco"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Claims List - Action BlankClaimSheet - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3463626789 - Action 3023745383 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Print Claim Sheet</source>
+          <note from="Developer" annotates="general" priority="2">ESP="Imprimir hoja reclamación",PTG="Imprimir folha reclamação"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Claims List - Action ClaimSheet - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 4242499010 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Claims Setup</source>
           <note from="Developer" annotates="general" priority="2">ESP="Configuración Reclamaciones"</note>
@@ -432,6 +442,56 @@
           <source>Mandatory fields must have a value</source>
           <note from="Developer" annotates="general" priority="2">ESP="Los campos obligatorios deben tener un valor",PTG="Os campos obrigatórios devem ter um valor"</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Create Claim Page - Action CreateClaim - Method OnAction - NamedType EmptyFieldErr</note>
+        </trans-unit>
+        <trans-unit id="Report 1793224271 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Claim Sheet</source>
+          <note from="Developer" annotates="general" priority="2">ESP="Hoja reclamación",PTG="Folha reclamação"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Claim Sheet - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 1793224271 - NamedType 740865549" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Bonification</source>
+          <note from="Developer" annotates="general" priority="2">ESP="Bonificación",PTG="Bônus"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Claim Sheet - NamedType BonificationTitle</note>
+        </trans-unit>
+        <trans-unit id="Report 1793224271 - NamedType 2075575990" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Coordinator</source>
+          <note from="Developer" annotates="general" priority="2">ESP="Coordinador",PTG="Coordenador"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Claim Sheet - NamedType CoordinatorTitle</note>
+        </trans-unit>
+        <trans-unit id="Report 1793224271 - NamedType 3074820368" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Date</source>
+          <note from="Developer" annotates="general" priority="2">ESP="Fecha",PTG="Data"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Claim Sheet - NamedType DateTitle</note>
+        </trans-unit>
+        <trans-unit id="Report 1793224271 - NamedType 4217079313" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Distributor</source>
+          <note from="Developer" annotates="general" priority="2">ESP="Distribuidor",PTG="Distribuidor"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Claim Sheet - NamedType DistributorTitle</note>
+        </trans-unit>
+        <trans-unit id="Report 1793224271 - NamedType 558934865" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Manufacturer</source>
+          <note from="Developer" annotates="general" priority="2">ESP="Fabricante",PTG="Criador"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Claim Sheet - NamedType ManufacturerTitle</note>
+        </trans-unit>
+        <trans-unit id="Report 1793224271 - NamedType 2295386186" size-unit="char" translate="yes" xml:space="preserve">
+          <source>PRODUCT EXAMINATION REQUEST</source>
+          <note from="Developer" annotates="general" priority="2">ESP="SOLICITUD DE EXAMEN PRODUCTO",PTG="SOLICITAÇÃO DE EXAME PRODUTO"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Claim Sheet - NamedType ReportTitle</note>
+        </trans-unit>
+        <trans-unit id="Report 1793224271 - NamedType 595234742" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Review</source>
+          <note from="Developer" annotates="general" priority="2">ESP="Revisión",PTG="Revisão"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Claim Sheet - NamedType ReviewTitle</note>
+        </trans-unit>
+        <trans-unit id="Report 1793224271 - NamedType 3961453728" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Signature</source>
+          <note from="Developer" annotates="general" priority="2">ESP="Firma",PTG="Assinatura"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Claim Sheet - NamedType SignatureTitle</note>
+        </trans-unit>
+        <trans-unit id="Report 1793224271 - NamedType 3156212275" size-unit="char" translate="yes" xml:space="preserve">
+          <source>User</source>
+          <note from="Developer" annotates="general" priority="2">ESP="Usuario",PTG="Usuário"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Claim Sheet - NamedType UserTitle</note>
         </trans-unit>
         <trans-unit id="PageExtension 621778418 - Action 3461998260 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1708100201">
           <source>Claim List</source>

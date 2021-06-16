@@ -97,6 +97,54 @@ page 50327 "Claims List"
             }
         }
     }
+
+    actions
+    {
+        area(Reporting)
+        {
+            action(ClaimSheet)
+            {
+                Caption = 'Print Claim Sheet', comment = 'ESP="Imprimir hoja reclamación",PTG="Imprimir folha reclamação"';
+                Image = PrintDocument;
+                Promoted = true;
+                PromotedCategory = Report;
+                PromotedIsBig = true;
+                PromotedOnly = true;
+
+                trigger OnAction()
+                var
+                    Claims: Record Claims;
+                begin
+                    Claims := Rec;
+                    Claims.SetRecFilter();
+                    Report.RunModal(Report::"Claim Sheet", true, false, Claims);
+                end;
+            }
+            action(BlankClaimSheet)
+            {
+                Caption = 'Print Blank Claim Sheet', comment = 'ESP="Imprimir hoja reclamación en blanco",PTG="Imprimir folha reclamação em branco"';
+                Image = PrintCover;
+                Promoted = true;
+                PromotedCategory = Report;
+                PromotedIsBig = true;
+                PromotedOnly = true;
+
+                trigger OnAction()
+                var
+                    Claims: Record Claims;
+                    ClaimSheet: Report "Claim Sheet";
+                begin
+                    Claims := Rec;
+                    Claims.SetRecFilter();
+                    Clear(ClaimSheet);
+                    ClaimSheet.SetTableView(Claims);
+                    ClaimSheet.SetEmptySheet();
+                    ClaimSheet.RunModal();
+                end;
+            }
+        }
+    }
+
     trigger OnQueryClosePage(CloseAction: Action): Boolean
     var
         Claims: Record Claims;
