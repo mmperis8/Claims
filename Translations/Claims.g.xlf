@@ -303,15 +303,10 @@
           <note from="Developer" annotates="general" priority="2">ESP="No se encuentra línia en el pedido de venta origen para liquidar esta reclamación",PTG="Não há linha na ordem de venda original para resolver esta reclamação"</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Claims Management - Method CreateSalesCrMemoLine - NamedType NoLineErr</note>
         </trans-unit>
-        <trans-unit id="Codeunit 3442031084 - NamedType 1620546306" size-unit="char" translate="yes" xml:space="preserve">
+        <trans-unit id="Codeunit 3442031084 - Method 1809789127 - NamedType 1620546306" size-unit="char" translate="yes" xml:space="preserve">
           <source>You must specifie a claim no. on line %1</source>
           <note from="Developer" annotates="general" priority="2">ESP="Debe indicar el número de reclamación en la línea %1",PTG="Deve introduzir o número da reclamação na linha %1"</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Purchase Management - NamedType NoClaimErr</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 494194381 - NamedType 1389818255" size-unit="char" translate="yes" xml:space="preserve">
-          <source>You must enter the information about the claim</source>
-          <note from="Developer" annotates="general" priority="2">ESP="Debe introducir la informacion sobre la reclamación",PTG="Deve introduzir as informações sobre a reclamação"</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Sales Management - NamedType NoReclamationErr</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Purchase Management - Method OnBeforePostLines - NamedType NoClaimErr</note>
         </trans-unit>
         <trans-unit id="Codeunit 494194381 - Method 1322259444 - NamedType 2009730464" size-unit="char" translate="yes" xml:space="preserve">
           <source>There is a claim related to this order. It is not possible to report accounts in the lines of a sales order with claims</source>
@@ -333,15 +328,20 @@
           <note from="Developer" annotates="general" priority="2">ESP="La cuenta especificada está pensada para usarse en el circuito de reclamaciones",PTG="A conta especificada destina-se a ser utilizada no circuito de reclamações"</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Sales Management - Method OnAfterValidateNoSalesOrderSub - NamedType ClaimingAccErr</note>
         </trans-unit>
+        <trans-unit id="Codeunit 494194381 - Method 3770870423 - NamedType 1389818255" size-unit="char" translate="yes" xml:space="preserve">
+          <source>You must enter the information about the claim</source>
+          <note from="Developer" annotates="general" priority="2">ESP="Debe introducir la informacion sobre la reclamación",PTG="Deve introduzir as informações sobre a reclamação"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Sales Management - Method OnBeforePostSalesLines - NamedType NoReclamationErr</note>
+        </trans-unit>
         <trans-unit id="Page 3463626789 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Claims List</source>
           <note from="Developer" annotates="general" priority="2">ESP="Lista de reclamaciones",PTG="Lista de reclamações"</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Claims List - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Page 3463626789 - NamedType 1389818255" size-unit="char" translate="yes" xml:space="preserve">
-          <source>You must enter the information about the claim %1</source>
-          <note from="Developer" annotates="general" priority="2">ESP="Debe introducir la informacion sobre la reclamación %1",PTG="Deve introduzir as informações sobre a reclamação %1"</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Claims List - NamedType NoReclamationErr</note>
+        <trans-unit id="Page 3463626789 - Method 4177352842 - NamedType 1389818255" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Warning !\You must enter the information about the claim %1</source>
+          <note from="Developer" annotates="general" priority="2">ESP="¡ Aviso !\Debe introducir toda la informacion sobre la reclamación %1",PTG="Atenção !\Deve introduzir as informações sobre a reclamação %1"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Claims List - Method OnQueryClosePage - NamedType NoReclamationErr</note>
         </trans-unit>
         <trans-unit id="Page 3463626789 - Action 190509817 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Print Blank Claim Sheet</source>
