@@ -2,16 +2,13 @@ codeunit 50322 "Claims Management"
 {
     procedure CreateClaim(var SalesHeader: Record "Sales Header")
     begin
-
         SalesHeader.TestField("Document Type", SalesHeader."Document Type"::Order.AsInteger());
         SalesHeader.TestField("Sell-to Customer No.");
-
         SalesHeader.FilterGroup(6);
         SalesHeader.Setrange("No.", SalesHeader."No.");
         SalesHeader.FilterGroup(0);
-        commit();
+        Commit();
         Page.RunModal(PAGE::"Create Claim Page", SalesHeader);
-
     end;
 
     procedure CreateSalesCrMemo(Rec: Record "Sales Header"; AmountToCrMemo: Decimal; Account: Code[20]; WheelItemNo: Code[20]; M_E: Code[50]; Vehicle_KM: Integer; Mm_Start: Decimal; Mm_Substract: Decimal; TireId: Text[30])
@@ -26,16 +23,13 @@ codeunit 50322 "Claims Management"
         if SalesCrMemoHeader.IsEmpty() then begin
             ClaimSetup.Get();
             ClaimSetup.TestField("Default Return Reason");
-
             Clear(SalesCrMemoHeader);
             SalesCrMemoHeader.Init();
             SalesCrMemoHeader.SetHideValidationDialog(true);
-
             SalesCrMemoHeader."Document Type" := SalesCrMemoHeader."Document Type"::"Credit Memo";
             SalesCrMemoHeader."Applied warranty to Doc. No." := Rec."No.";
             SalesCrMemoHeader.Validate("Sell-to Customer No.", Rec."Sell-to Customer No.");
             SalesCrMemoHeader.Insert(true);
-
             SalesCrMemoHeader.Status := SalesCrMemoHeader.Status::Open;
             SalesCrMemoHeader.Operator := Rec.Operator;
             SalesCrMemoHeader."Repair Responsible" := Rec."Repair Responsible";
@@ -53,11 +47,10 @@ codeunit 50322 "Claims Management"
         SalesLine: Record "Sales Line";
         ClaimSetup: Record "Claims Setup";
         LineNo: Integer;
-        NoLineErr: Label 'There is no line in the original sales order to settle this claim', comment = 'ESP="No se encuentra línia en el pedido de venta origen para liquidar esta reclamación",PTG="Não há linha na ordem de venda original para resolver esta reclamação"';
+        NoLineErr: Label 'There is no line in the original sales order to settle this claim', Comment = 'ESP="No se encuentra línia en el pedido de venta origen para liquidar esta reclamación",PTG="Não há linha na ordem de venda original para resolver esta reclamação"';
     begin
         ClaimSetup.Get();
         ClaimSetup.TestField("Default Return Reason");
-
         LineNo := 10000;
         Clear(SalesCrMemoLine);
         SalesCrMemoLine.SetRange("Document No.", SalesCrMemoHeader."No.");

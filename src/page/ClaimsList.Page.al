@@ -4,7 +4,7 @@ page 50327 "Claims List"
     ApplicationArea = All;
     UsageCategory = Lists;
     SourceTable = Claims;
-    Caption = 'Claims List', comment = 'ESP="Lista de reclamaciones",PTG="Lista de reclamações"';
+    Caption = 'Claims List', Comment = 'ESP="Lista de reclamaciones",PTG="Lista de reclamações"';
 
     layout
     {
@@ -104,7 +104,7 @@ page 50327 "Claims List"
         {
             action(ClaimSheet)
             {
-                Caption = 'Print Claim Sheet', comment = 'ESP="Imprimir hoja reclamación",PTG="Imprimir folha reclamação"';
+                Caption = 'Print Claim Sheet', Comment = 'ESP="Imprimir hoja reclamación",PTG="Imprimir folha reclamação"';
                 Image = PrintDocument;
                 Promoted = true;
                 PromotedCategory = Report;
@@ -122,7 +122,7 @@ page 50327 "Claims List"
             }
             action(BlankClaimSheet)
             {
-                Caption = 'Print Blank Claim Sheet', comment = 'ESP="Imprimir hoja reclamación en blanco",PTG="Imprimir folha reclamação em branco"';
+                Caption = 'Print Blank Claim Sheet', Comment = 'ESP="Imprimir hoja reclamación en blanco",PTG="Imprimir folha reclamação em branco"';
                 Image = PrintCover;
                 Promoted = true;
                 PromotedCategory = Report;
@@ -148,22 +148,18 @@ page 50327 "Claims List"
     trigger OnQueryClosePage(CloseAction: Action): Boolean
     var
         Claims: Record Claims;
-        ExitBool: Boolean;
+        ClaimErrNo: Code[20];
+        NoReclamationErr: Label 'Warning !\You must enter the information about the claim %1', Comment = 'ESP="¡ Aviso !\Debe introducir toda la informacion sobre la reclamación %1",PTG="Atenção !\Deve introduzir as informações sobre a reclamação %1"';
     begin
-        ExitBool := true;
-        Clear(Claims);
-        if Claims.FindSet() then
+        ClaimErrNo := '';
+        Claims.Reset();
+        if Claims.FindSet(false) then
             repeat
-                if (Claims."Customer No." = '') Or (Claims."Wheel Item No." = '') Or
-                (Claims."Reclamation date" = 0D) Or
-                (Claims."Source No." = '') then begin
-                    ExitBool := false;
-                    Error(NoReclamationErr, Claims."No.");
-                end;
-            until (Claims.Next() = 0) or not (ExitBool);
-        exit(ExitBool);
+                if (Claims."Customer No." = '') or (Claims."Wheel Item No." = '') or (Claims."Reclamation date" = 0D) or
+                   (Claims."Source No." = '') then
+                    ClaimErrNo := Claims."No.";
+            until ((ClaimErrNo <> '') or (Claims.Next() = 0));
+        if ClaimErrNo <> '' then
+            Message(NoReclamationErr, ClaimErrNo);
     end;
-
-    var
-        NoReclamationErr: Label 'You must enter the information about the claim %1', comment = 'ESP="Debe introducir la informacion sobre la reclamación %1",PTG="Deve introduzir as informações sobre a reclamação %1"';
 }

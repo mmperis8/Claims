@@ -6,7 +6,7 @@ pageextension 50323 "Sales Credit Memo Claims" extends "Sales Credit Memo"
         {
             action(ClaimList)
             {
-                Caption = 'Claim List', comment = 'ESP="Lista de reclamaciones",PTG=""';
+                Caption = 'Claim List', Comment = 'ESP="Lista de reclamaciones",PTG=""';
                 Image = List;
                 ApplicationArea = All;
                 Promoted = true;

@@ -65,5 +65,5 @@ codeunit 50320 "Purchase Management"
     end;
 
     var
-        NoClaimErr: Label 'You must specifie a claim no. on line %1', comment = 'ESP="Debe indicar el número de reclamación en la línea %1",PTG="Deve introduzir o número da reclamação na linha %1"';
+        NoClaimErr: Label 'You must specifie a claim no. on line %1', Comment = 'ESP="Debe indicar el número de reclamación en la línea %1",PTG="Deve introduzir o número da reclamação na linha %1"';
 }

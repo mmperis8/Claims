@@ -7,50 +7,50 @@ enum 50320 "Vehicle Type"
     }
     value(1; Tractor)
     {
-        Caption = 'Tractor', comment = 'ESP="Tractora",PTG="Tractora"';
+        Caption = 'Tractor', Comment = 'ESP="Tractora",PTG="Tractora"';
     }
     value(2; Truck)
     {
-        Caption = 'Truck', comment = 'ESP="Camión",PTG="Camião"';
+        Caption = 'Truck', Comment = 'ESP="Camión",PTG="Camião"';
     }
     value(3; Bus)
     {
-        Caption = 'Bus', comment = 'ESP="Autocar",PTG="Autocarro"';
+        Caption = 'Bus', Comment = 'ESP="Autocar",PTG="Autocarro"';
     }
     value(4; "Semi Trailer")
     {
-        Caption = 'Semi Trailer', comment = 'ESP="Semi Remolque",PTG="Semi-reboque"';
+        Caption = 'Semi Trailer', Comment = 'ESP="Semi Remolque",PTG="Semi-reboque"';
     }
     value(5; Trailer)
     {
-        Caption = 'Trailer', comment = 'ESP="Remolque",PTG="Reboque"';
+        Caption = 'Trailer', Comment = 'ESP="Remolque",PTG="Reboque"';
     }
     value(6; Tourism)
     {
-        Caption = 'Tourism', comment = 'ESP="Turismo",PTG="Turismo"';
+        Caption = 'Tourism', Comment = 'ESP="Turismo",PTG="Turismo"';
     }
     value(7; Van)
     {
-        Caption = 'Van', comment = 'ESP="Camioneta",PTG="Camião"';
+        Caption = 'Van', Comment = 'ESP="Camioneta",PTG="Camião"';
     }
     value(8; Motorbyke)
     {
-        Caption = 'Motorbyke', comment = 'ESP="Moto",PTG="Moto"';
+        Caption = 'Motorbyke', Comment = 'ESP="Moto",PTG="Moto"';
     }
     value(9; Scooter)
     {
-        Caption = 'Scooter', comment = 'ESP="Scooter",PTG="Scooter"';
+        Caption = 'Scooter', Comment = 'ESP="Scooter",PTG="Scooter"';
     }
     value(10; Quad)
     {
-        Caption = 'Quad', comment = 'ESP="Quad",PTG="Quad"';
+        Caption = 'Quad', Comment = 'ESP="Quad",PTG="Quad"';
     }
     value(11; OffRoad)
     {
-        Caption = 'Off-Road', comment = 'ESP="Todo Terreno",PTG="Todo o terreno"';
+        Caption = 'Off-Road', Comment = 'ESP="Todo Terreno",PTG="Todo o terreno"';
     }
     value(12; Others)
     {
-        Caption = 'Others', comment = 'ESP="Otros",PTG="Outros"';
+        Caption = 'Others', Comment = 'ESP="Otros",PTG="Outros"';
     }
 }

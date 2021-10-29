@@ -1,6 +1,6 @@
 report 50320 "Claim Sheet"
 {
-    Caption = 'Claim Sheet', comment = 'ESP="Hoja reclamación",PTG="Folha reclamação"';
+    Caption = 'Claim Sheet', Comment = 'ESP="Hoja reclamación",PTG="Folha reclamação"';
     UsageCategory = None;
     DefaultLayout = RDLC;
     RDLCLayout = './src/report/ClaimSheet.Report.rdl';
@@ -119,15 +119,15 @@ report 50320 "Claim Sheet"
         Customer: Record Customer;
         Item: Record Item;
         EmptySheet: Boolean;
-        UserTitle: Label 'User', comment = 'ESP="Usuario",PTG="Usuário"';
-        DistributorTitle: Label 'Distributor', comment = 'ESP="Distribuidor",PTG="Distribuidor"';
-        SignatureTitle: Label 'Signature', comment = 'ESP="Firma",PTG="Assinatura"';
-        ReviewTitle: Label 'Review', comment = 'ESP="Revisión",PTG="Revisão"';
-        DateTitle: Label 'Date', comment = 'ESP="Fecha",PTG="Data"';
-        CoordinatorTitle: Label 'Coordinator', comment = 'ESP="Coordinador",PTG="Coordenador"';
-        ManufacturerTitle: Label 'Manufacturer', comment = 'ESP="Fabricante",PTG="Criador"';
-        BonificationTitle: Label 'Bonification', comment = 'ESP="Bonificación",PTG="Bônus"';
-        ReportTitle: Label 'PRODUCT EXAMINATION REQUEST', comment = 'ESP="SOLICITUD DE EXAMEN PRODUCTO",PTG="SOLICITAÇÃO DE EXAME PRODUTO"';
+        UserTitle: Label 'User', Comment = 'ESP="Usuario",PTG="Usuário"';
+        DistributorTitle: Label 'Distributor', Comment = 'ESP="Distribuidor",PTG="Distribuidor"';
+        SignatureTitle: Label 'Signature', Comment = 'ESP="Firma",PTG="Assinatura"';
+        ReviewTitle: Label 'Review', Comment = 'ESP="Revisión",PTG="Revisão"';
+        DateTitle: Label 'Date', Comment = 'ESP="Fecha",PTG="Data"';
+        CoordinatorTitle: Label 'Coordinator', Comment = 'ESP="Coordinador",PTG="Coordenador"';
+        ManufacturerTitle: Label 'Manufacturer', Comment = 'ESP="Fabricante",PTG="Criador"';
+        BonificationTitle: Label 'Bonification', Comment = 'ESP="Bonificación",PTG="Bônus"';
+        ReportTitle: Label 'PRODUCT EXAMINATION REQUEST', Comment = 'ESP="SOLICITUD DE EXAMEN PRODUCTO",PTG="SOLICITAÇÃO DE EXAME PRODUTO"';
 
     procedure SetEmptySheet()
     begin

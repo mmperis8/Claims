@@ -4,7 +4,7 @@ tableextension 50320 "G/L Account Claim" extends "G/L Account"
     {
         field(50320; "Claiming Account"; Boolean)
         {
-            Caption = 'Claiming Account', comment = 'ESP="Cuenta de reclamaciones",PTG="Conta de reclamações"';
+            Caption = 'Claiming Account', Comment = 'ESP="Cuenta de reclamaciones",PTG="Conta de reclamações"';
             DataClassification = CustomerContent;
         }
     }

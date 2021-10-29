@@ -2,7 +2,7 @@ page 50328 "Create Claim Page"
 {
     PageType = Card;
     PromotedActionCategories = 'Process';
-    Caption = 'Create Claim', comment = 'ESP="Creación de reclamaciones",PTG="Criação de reivindicações"';
+    Caption = 'Create Claim', Comment = 'ESP="Creación de reclamaciones",PTG="Criação de reivindicações"';
     SourceTable = "Sales Header";
     InsertAllowed = false;
     DeleteAllowed = false;
@@ -18,7 +18,7 @@ page 50328 "Create Claim Page"
                 field("No."; Rec."No.")
                 {
                     ApplicationArea = All;
-                    Caption = 'O.R. No.', comment = 'ESP="Nº O.R.",PTG="Nº O.R"';
+                    Caption = 'O.R. No.', Comment = 'ESP="Nº O.R.",PTG="Nº O.R"';
                     Editable = false;
                 }
                 field("Sell-to Customer Name"; Rec."Sell-to Customer Name")
@@ -49,15 +49,15 @@ page 50328 "Create Claim Page"
                 field(Account; Account)
                 {
                     ApplicationArea = All;
-                    Caption = 'Account', comment = 'ESP="Cuenta",PTG="Conta"';
+                    Caption = 'Account', Comment = 'ESP="Cuenta",PTG="Conta"';
                     ShowMandatory = true;
                     TableRelation = "G/L Account" where("Claiming Account" = const(true));
 
                     trigger OnValidate()
                     var
                         GLAccount: Record "G/L Account";
-                        NoExistingAccErr: Label 'The specifies account does not exist', comment = 'ESP="La cuenta especificada no existe",PTG="A conta especificada não existe"';
-                        NotClaimingAccErr: Label 'The specified account cannot be used as it is not a claims account', comment = 'ESP="La cuenta especificada no puede ser usada al no ser una cuenta de reclamaciones",PTG="A conta especificada não pode ser utilizada porque não é uma conta de créditos"';
+                        NoExistingAccErr: Label 'The specifies account does not exist', Comment = 'ESP="La cuenta especificada no existe",PTG="A conta especificada não existe"';
+                        NotClaimingAccErr: Label 'The specified account cannot be used as it is not a claims account', Comment = 'ESP="La cuenta especificada no puede ser usada al no ser una cuenta de reclamaciones",PTG="A conta especificada não pode ser utilizada porque não é uma conta de créditos"';
                     begin
                         if not GLAccount.Get(Account) then
                             Error(NoExistingAccErr);
@@ -68,12 +68,12 @@ page 50328 "Create Claim Page"
                 field(AmountToCrMemo; AmountToCrMemo)
                 {
                     ApplicationArea = All;
-                    Caption = 'Amount', comment = 'ESP="Importe",PTG="Montante"';
+                    Caption = 'Amount', Comment = 'ESP="Importe",PTG="Montante"';
                     ShowMandatory = true;
                 }
                 field(WheelItemNo; WheelItemNo)
                 {
-                    Caption = 'Wheel Item No.', comment = 'ESP="Nº producto rueda",PTG="N.º do produto roda"';
+                    Caption = 'Wheel Item No.', Comment = 'ESP="Nº producto rueda",PTG="N.º do produto roda"';
                     ApplicationArea = All;
                     TableRelation = Item;
                     ShowMandatory = true;
@@ -116,27 +116,27 @@ page 50328 "Create Claim Page"
                 }
                 field(TireId; TireId)
                 {
-                    Caption = 'Tire Id.', comment = 'ESP="Matrícula cubierta",PTG="Id. pneu"';
+                    Caption = 'Tire Id.', Comment = 'ESP="Matrícula cubierta",PTG="Id. pneu"';
                     ApplicationArea = All;
                 }
                 field(M_E; M_E)
                 {
-                    Caption = 'M.E', comment = 'ESP="M.E",PTG="M.E"';
+                    Caption = 'M.E', Comment = 'ESP="M.E",PTG="M.E"';
                     ApplicationArea = All;
                 }
                 field(Vehicle_KM; Vehicle_KM)
                 {
-                    Caption = 'Vehicle Kms.', comment = 'ESP="Km. Uso",PTG="Km. Utilização"';
+                    Caption = 'Vehicle Kms.', Comment = 'ESP="Km. Uso",PTG="Km. Utilização"';
                     ApplicationArea = All;
                 }
                 field(Mm_Start; Mm_Start)
                 {
-                    Caption = 'Mm. Start', comment = 'ESP="Mm. Inicio",PTG="Mm. Início"';
+                    Caption = 'Mm. Start', Comment = 'ESP="Mm. Inicio",PTG="Mm. Início"';
                     ApplicationArea = All;
                 }
                 field(Mm_Substract; Mm_Substract)
                 {
-                    Caption = 'Mm. Substract', comment = 'ESP="Mm. Resto",PTG="Mm. Descanso"';
+                    Caption = 'Mm. Substract', Comment = 'ESP="Mm. Resto",PTG="Mm. Descanso"';
                     ApplicationArea = All;
                 }
             }
@@ -154,7 +154,7 @@ page 50328 "Create Claim Page"
                 PromotedIsBig = true;
                 PromotedCategory = Process;
                 Caption = 'Cancel claim',
-                    comment = 'ESP="Anular reclamación",PTG="Cancelar cobranças"';
+                    Comment = 'ESP="Anular reclamación",PTG="Cancelar cobranças"';
 
                 trigger OnAction()
                 begin
@@ -169,11 +169,11 @@ page 50328 "Create Claim Page"
                 PromotedIsBig = true;
                 PromotedCategory = Process;
                 Caption = 'Create Claim',
-                    comment = 'ESP="Crear reclamación",PTG="Criar reclamação"';
+                    Comment = 'ESP="Crear reclamación",PTG="Criar reclamação"';
 
                 trigger OnAction()
                 var
-                    EmptyFieldErr: Label 'Mandatory fields must have a value', comment = 'ESP="Los campos obligatorios deben tener un valor",PTG="Os campos obrigatórios devem ter um valor"';
+                    EmptyFieldErr: Label 'Mandatory fields must have a value', Comment = 'ESP="Los campos obligatorios deben tener un valor",PTG="Os campos obrigatórios devem ter um valor"';
                 begin
                     if (Account = '') Or (AmountToCrMemo = 0) Or (WheelItemNo = '') then
                         Error(EmptyFieldErr);
@@ -188,7 +188,7 @@ page 50328 "Create Claim Page"
                 Promoted = true;
                 PromotedIsBig = true;
                 PromotedCategory = Process;
-                Caption = 'Claims List', comment = 'ESP="Lista de reclamaciones",PTG="Lista de reclamações"';
+                Caption = 'Claims List', Comment = 'ESP="Lista de reclamaciones",PTG="Lista de reclamações"';
                 RunObject = page "Claims List";
             }
         }

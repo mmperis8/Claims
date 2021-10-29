@@ -4,7 +4,7 @@ codeunit 50321 "Sales Management"
     local procedure OnAferValidateNoSalesLine(var Rec: Record "Sales Line")
     var
         Claims: Record Claims;
-        ClaimsErr: Label 'There is a claim related to this order. It is not possible to report accounts in the lines of a sales order with claims', comment = 'ESP="Existe una reclamación relacionada con este pedido. No es posible informar cuentas en las línias de un pedido de venta con reclamaciones",PTG="Há uma reclamação relacionada com esta encomenda. Não é possível reportar contas nas linhas de uma ordem de venda com queixas"';
+        ClaimsErr: Label 'There is a claim related to this order. It is not possible to report accounts in the lines of a sales order with claims', Comment = 'ESP="Existe una reclamación relacionada con este pedido. No es posible informar cuentas en las línias de un pedido de venta con reclamaciones",PTG="Há uma reclamação relacionada com esta encomenda. Não é possível reportar contas nas linhas de uma ordem de venda com queixas"';
     begin
         Claims.SetRange("Source No.", Rec."Document No.");
         if not Claims.IsEmpty() then
@@ -24,8 +24,8 @@ codeunit 50321 "Sales Management"
         SalesHeader: Record "Sales Header";
         Claims: Record Claims;
         GLAccount: Record "G/L Account";
-        ClaimingAccMsg: Label 'The specified account is going to create a claim, do you wish to continue?', comment = 'ESP="La cuenta especificada creará una reclamación, desea continuar?",PTG="A conta especificada irá criar uma reclamação, gostaria de continuar?"';
-        ClaimingAccErr: Label 'The specified account is meant to be used on the claims process', comment = 'ESP="La cuenta especificada está pensada para usarse en el circuito de reclamaciones",PTG="A conta especificada destina-se a ser utilizada no circuito de reclamações"';
+        ClaimingAccMsg: Label 'The specified account is going to create a claim, do you wish to continue?', Comment = 'ESP="La cuenta especificada creará una reclamación, desea continuar?",PTG="A conta especificada irá criar uma reclamação, gostaria de continuar?"';
+        ClaimingAccErr: Label 'The specified account is meant to be used on the claims process', Comment = 'ESP="La cuenta especificada está pensada para usarse en el circuito de reclamaciones",PTG="A conta especificada destina-se a ser utilizada no circuito de reclamações"';
     begin
         if Rec."Document Type" <> Rec."Document Type"::"Credit Memo" then
             exit;
@@ -56,7 +56,7 @@ codeunit 50321 "Sales Management"
     local procedure OnAfterValidateNoSalesOrderSub(var Rec: Record "Sales Line"; var xRec: Record "Sales Line")
     var
         GLAccount: Record "G/L Account";
-        ClaimingAccErr: Label 'The specified account is meant to be used on the claims process', comment = 'ESP="La cuenta especificada está pensada para usarse en el circuito de reclamaciones",PTG="A conta especificada destina-se a ser utilizada no circuito de reclamações"';
+        ClaimingAccErr: Label 'The specified account is meant to be used on the claims process', Comment = 'ESP="La cuenta especificada está pensada para usarse en el circuito de reclamaciones",PTG="A conta especificada destina-se a ser utilizada no circuito de reclamações"';
     begin
         if Rec."Document Type" <> Rec."Document Type"::Order then
             exit;
@@ -147,6 +147,6 @@ codeunit 50321 "Sales Management"
     end;
 
     var
-        NoReclamationErr: Label 'You must enter the information about the claim', comment = 'ESP="Debe introducir la informacion sobre la reclamación",PTG="Deve introduzir as informações sobre a reclamação"';
+        NoReclamationErr: Label 'You must enter the information about the claim', Comment = 'ESP="Debe introducir la informacion sobre la reclamación",PTG="Deve introduzir as informações sobre a reclamação"';
 
 }

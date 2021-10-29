@@ -1,7 +1,7 @@
 page 50335 "Claims Setup"
 {
     ApplicationArea = All;
-    Caption = 'Claims Setup', comment = 'ESP="Configuración Reclamaciones"';
+    Caption = 'Claims Setup', Comment = 'ESP="Configuración Reclamaciones"';
     PageType = Card;
     SourceTable = "Claims Setup";
     UsageCategory = Administration;
