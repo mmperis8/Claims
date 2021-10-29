@@ -5,20 +5,19 @@ codeunit 50320 "Purchase Management"
     var
         PurchLine: Record "Purchase Line";
         GLAccount: Record "G/L Account";
+        NoClaimErr: Label 'You must specifie a claim no. on line %1', Comment = 'ESP="Debe indicar el número de reclamación en la línea %1",PTG="Deve introduzir o número da reclamação na linha %1"';
     begin
         if not (PurchHeader."Document Type" = PurchHeader."Document Type"::"Credit Memo") then
             exit;
-
         PurchLine.SetRange("Document Type", PurchHeader."Document Type");
         PurchLine.SetRange("Document No.", PurchHeader."No.");
         PurchLine.SetRange(Type, PurchLine.Type::"G/L Account");
-        if PurchLine.FindSet() then
+        if PurchLine.FindSet(false) then
             repeat
-                if (GLAccount.Get(PurchLine."No.")) and (GLAccount."Claiming Account") then
+                if (GLAccount.Get(PurchLine."No.")) and GLAccount."Claiming Account" then
                     if PurchLine."Claim No." = '' then
-                        Error(NoClaimErr);
+                        Error(NoClaimErr, PurchLine."Line No.");
             until PurchLine.Next() = 0;
-
     end;
 
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"Purch.-Post", 'OnAfterPostPurchaseDoc', '', false, false)]
@@ -27,17 +26,15 @@ codeunit 50320 "Purchase Management"
         Claims: Record Claims;
         PurchaseLine: Record "Purchase Line";
     begin
-
         if PurchaseHeader."Document Type" <> PurchaseHeader."Document Type"::"Credit Memo" then
             exit;
-
-        PurchaseLine.SetCurrentKey("Document Type", "Document No.", Type);
+        PurchaseLine.Reset();
         PurchaseLine.SetRange("Document Type", PurchaseHeader."Document Type");
         PurchaseLine.SetRange("Document No.", PurchaseHeader."No.");
         PurchaseLine.SetRange(Type, PurchaseLine.Type::"G/L Account");
-        if PurchaseLine.FindSet() then
+        if PurchaseLine.FindSet(false) then
             repeat
-                Clear(Claims);
+                Claims.Reset();
                 Claims.SetRange("No.", PurchaseLine."Claim No.");
                 if Claims.FindFirst() then begin
                     Claims."Vendor Liquidation" := true;
@@ -56,14 +53,10 @@ codeunit 50320 "Purchase Management"
     begin
         if (Rec."Document Type" <> Rec."Document Type"::"Credit Memo") or (Rec.Type <> Rec.Type::"G/L Account") then
             exit;
-
         Claims.SetRange("No.", Rec."Claim No.");
         if Claims.FindFirst() then begin
             Claims."Vendor Observations" := Rec.Description;
             Claims.Modify();
         end;
     end;
-
-    var
-        NoClaimErr: Label 'You must specifie a claim no. on line %1', Comment = 'ESP="Debe indicar el número de reclamación en la línea %1",PTG="Deve introduzir o número da reclamação na linha %1"';
 }
