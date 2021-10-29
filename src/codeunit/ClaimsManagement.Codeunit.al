@@ -57,10 +57,8 @@ codeunit 50322 "Claims Management"
         SalesCrMemoLine.SetRange("Document Type", SalesCrMemoHeader."Document Type");
         if SalesCrMemoLine.FindLast() then
             LineNo := SalesCrMemoLine."Line No." + 10000;
-
         if not SalesLine.Get(Rec."Document Type", Rec."No.", LineNo) then
             Error(NoLineErr);
-
         Clear(SalesCrMemoLine);
         SalesCrMemoLine.SetHideValidationDialog(true);
         SalesCrMemoLine.Init();
@@ -69,18 +67,16 @@ codeunit 50322 "Claims Management"
         SalesCrMemoLine."Line No." := LineNo;
         SalesCrMemoLine.Insert(true);
         SalesCrMemoLine.Type := SalesCrMemoLine.Type::"G/L Account";
-        SalesCrMemoLine.VALIDATE("Line Discount %", 0);
+        SalesCrMemoLine.Validate("Line Discount %", 0);
         if Account <> '' then
             SalesCrMemoLine.Validate("No.", Account);
         SalesCrMemoLine.Validate(Quantity, 1);
         if AmountToCrMemo <> 0 then
             SalesCrMemoLine.Validate("Unit Price", AmountToCrMemo);
-
         SalesCrMemoLine."Applied warranty to Doc. No." := SalesLine."Document No.";
         SalesCrMemoLine."Applied warranty to Line No." := SalesLine."Line No.";
         SalesCrMemoLine."Return Reason Code" := ClaimSetup."Default Return Reason";
         SalesCrMemoLine.Modify();
-
     end;
 
     local procedure CreateClaimRecord(Rec: Record "Sales Header"; Account: Code[20]; WheelItemNo: Code[20]; M_E: Code[50]; Vehicle_KM: Integer; Mm_Start: Decimal; Mm_Substract: Decimal; TireId: Text[30]; SalesCrMemoLine: Record "Sales Line")
@@ -90,11 +86,10 @@ codeunit 50322 "Claims Management"
     begin
         if Account = '' then
             exit;
-
-        if GLAccount.Get(Account) then
-            if not GLAccount."Claiming Account" then
-                exit;
-
+        if not GLAccount.Get(Account) then
+            exit;
+        if not GLAccount."Claiming Account" then
+            exit;
         Claims.Init();
         Claims."Source No." := SalesCrMemoLine."Applied warranty to Doc. No.";
         Claims."Source Line No." := SalesCrMemoLine."Applied warranty to Line No.";
@@ -110,5 +105,4 @@ codeunit 50322 "Claims Management"
         Claims.Insert(true);
         Page.Run(Page::"Claims List", Claims);
     end;
-
 }

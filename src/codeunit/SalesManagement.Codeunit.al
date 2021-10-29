@@ -29,27 +29,30 @@ codeunit 50321 "Sales Management"
     begin
         if Rec."Document Type" <> Rec."Document Type"::"Credit Memo" then
             exit;
-
-        if Rec.Type = Rec.Type::"G/L Account" then
-            if GLAccount.Get(Rec."No.") then
-                if GLAccount."Claiming Account" then
-                    if not Rec.GetHideValidationDialog() then
-                        if not Confirm(ClaimingAccMsg) then
-                            Error(ClaimingAccErr)
-                        else begin
-                            SalesHeader.Get(Rec."Document Type", Rec."Document No.");
-                            Claims.Init();
-                            Claims."Source No." := Rec."Document No.";
-                            if Claims."Source Line No." = 0 then
-                                Claims."Source Line No." := 10000
-                            else
-                                Claims."Source Line No." := Rec."Line No.";
-                            Claims."Customer No." := Rec."Sell-to Customer No.";
-                            Claims."Reclamation date" := WorkDate();
-                            Claims."Plaque Code" := SalesHeader."Plaque Code";
-                            Claims.Insert(true);
-                            Page.Run(Page::"Claims List", Claims);
-                        end;
+        if Rec.Type <> Rec.Type::"G/L Account" then
+            exit;
+        if not GLAccount.Get(Rec."No.") then
+            exit;
+        if not GLAccount."Claiming Account" then
+            exit;
+        if not Rec.GetHideValidationDialog() then begin
+            if not Confirm(ClaimingAccMsg) then
+                Error(ClaimingAccErr)
+            else begin
+                SalesHeader.Get(Rec."Document Type", Rec."Document No.");
+                Claims.Init();
+                Claims."Source No." := Rec."Document No.";
+                if Claims."Source Line No." = 0 then
+                    Claims."Source Line No." := 10000
+                else
+                    Claims."Source Line No." := Rec."Line No.";
+                Claims."Customer No." := Rec."Sell-to Customer No.";
+                Claims."Reclamation date" := WorkDate();
+                Claims."Plaque Code" := SalesHeader."Plaque Code";
+                Claims.Insert(true);
+                Page.Run(Page::"Claims List", Claims);
+            end;
+        end;
     end;
 
     [EventSubscriber(ObjectType::Table, Database::"Sales Line", 'OnAfterValidateEvent', 'No.', false, false)]
@@ -60,10 +63,12 @@ codeunit 50321 "Sales Management"
     begin
         if Rec."Document Type" <> Rec."Document Type"::Order then
             exit;
-        if Rec.Type = Rec.Type::"G/L Account" then
-            if GLAccount.Get(Rec."No.") then
-                if GLAccount."Claiming Account" then
-                    Error(ClaimingAccErr);
+        if Rec.Type <> Rec.Type::"G/L Account" then
+            exit;
+        if not GLAccount.Get(Rec."No.") then
+            exit;
+        if GLAccount."Claiming Account" then
+            Error(ClaimingAccErr);
     end;
 
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"Sales-Post", 'OnBeforePostSalesLines', '', false, false)]
@@ -71,43 +76,22 @@ codeunit 50321 "Sales Management"
     var
         Claims: Record Claims;
         SalesCrMemoLine: Record "Sales Line";
+        NoReclamationErr: Label 'You must enter the information about the claim', Comment = 'ESP="Debe introducir la informacion sobre la reclamación",PTG="Deve introduzir as informações sobre a reclamação"';
     begin
         SalesCrMemoLine.SetCurrentKey("Applied warranty to Doc. No.");
         SalesCrMemoLine.SetRange("Applied warranty to Doc. No.", SalesHeader."No.");
-        if SalesCrMemoLine.Findset() then
+        if SalesCrMemoLine.Findset(false) then
             repeat
-                Clear(Claims);
+                Claims.Reset();
                 Claims.SetRange("Source No.", SalesCrMemoLine."Applied warranty to Doc. No.");
                 Claims.SetRange("Source Line No.", SalesCrMemoLine."Applied warranty to Line No.");
-                if Claims.FindFirst() then
-                    if (Claims."Customer No." = '') Or (Claims."Wheel Item No." = '') Or
-                    (Claims."Reclamation date" = 0D) Or
-                    (Claims."Source No." = '') then
+                if Claims.FindFirst() then begin
+                    if (Claims."Customer No." = '') or (Claims."Wheel Item No." = '') or (Claims."Reclamation date" = 0D) or
+                        (Claims."Source No." = '') then
                         Error(NoReclamationErr);
+                end;
             until SalesCrMemoLine.Next() = 0;
     end;
-
-    // [EventSubscriber(ObjectType::Table, Database::"Sales Invoice Header", 'OnAfterInsertEvent', '', false, false)]
-    // local procedure OnAfterInsertSalesInvHdEvent(var Rec: Record "Sales Invoice Header")
-    // var
-    //     SalesCrMemoHeader: Record "Sales Header";
-    //     SalesHeader: Record "Sales Header";
-    // begin
-    //     if SalesHeader.Get(SalesHeader."Document Type"::Order, Rec."Order No.") then begin
-    //         SalesCrMemoHeader.SetCurrentKey("Applied warranty to Doc. No.");
-    //         SalesCrMemoHeader.SetRange("Applied warranty to Doc. No.", Rec."Order No.");
-    //         if SalesCrMemoHeader.FindFirst() then begin
-    //             if SalesCrMemoHeader."Payment Method Code" = '' then
-    //                 SalesCrMemoHeader."Payment Method Code" := Rec."Payment Method Code";
-    //             if SalesCrMemoHeader."External Document No." = '' then begin
-    //                 SalesCrMemoHeader."Corrected Invoice No." := Rec."No.";
-    //                 SalesCrMemoHeader."External Document No." := Rec."No.";
-    //             end;
-    //             SalesCrMemoHeader.Modify();
-    //             Codeunit.RUN(Codeunit::"Sales-Post", SalesCrMemoHeader);
-    //         end;
-    //     end;
-    // end;
 
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"Sales-Post", 'OnAfterPostSalesDoc', '', true, true)]
     local procedure ClaimsOnAfterPostSalesDoc(var SalesHeader: Record "Sales Header"; var GenJnlPostLine: Codeunit "Gen. Jnl.-Post Line"; SalesShptHdrNo: Code[20]; SalesInvHdrNo: Code[20]; SalesCrMemoHdrNo: Code[20]; RetRcpHdrNo: Code[20]; InvtPickPutaway: Boolean; CommitIsSuppressed: Boolean)
@@ -115,20 +99,20 @@ codeunit 50321 "Sales Management"
         SalesCrMemoHeader: Record "Sales Header";
         SalesInvHdr: Record "Sales Invoice Header";
     begin
-        if SalesInvHdrNo <> '' then begin
-            SalesInvHdr.Get(SalesInvHdrNo);
-            SalesCrMemoHeader.SetCurrentKey("Applied warranty to Doc. No.");
-            SalesCrMemoHeader.SetRange("Applied warranty to Doc. No.", SalesInvHdr."Order No.");
-            if SalesCrMemoHeader.FindFirst() then begin
-                if SalesCrMemoHeader."Payment Method Code" = '' then
-                    SalesCrMemoHeader."Payment Method Code" := SalesInvHdr."Payment Method Code";
-                if SalesCrMemoHeader."External Document No." = '' then begin
-                    SalesCrMemoHeader."Corrected Invoice No." := SalesInvHdr."No.";
-                    SalesCrMemoHeader."External Document No." := SalesInvHdr."No.";
-                end;
-                SalesCrMemoHeader.Modify();
-                Codeunit.RUN(Codeunit::"Sales-Post", SalesCrMemoHeader);
+        if SalesInvHdrNo = '' then
+            exit;
+        SalesInvHdr.Get(SalesInvHdrNo);
+        SalesCrMemoHeader.SetCurrentKey("Applied warranty to Doc. No.");
+        SalesCrMemoHeader.SetRange("Applied warranty to Doc. No.", SalesInvHdr."Order No.");
+        if SalesCrMemoHeader.FindFirst() then begin
+            if SalesCrMemoHeader."Payment Method Code" = '' then
+                SalesCrMemoHeader."Payment Method Code" := SalesInvHdr."Payment Method Code";
+            if SalesCrMemoHeader."External Document No." = '' then begin
+                SalesCrMemoHeader."Corrected Invoice No." := SalesInvHdr."No.";
+                SalesCrMemoHeader."External Document No." := SalesInvHdr."No.";
             end;
+            SalesCrMemoHeader.Modify();
+            Codeunit.Run(Codeunit::"Sales-Post", SalesCrMemoHeader);
         end;
     end;
 
@@ -137,7 +121,7 @@ codeunit 50321 "Sales Management"
     var
         Claims: Record Claims;
     begin
-        Clear(Claims);
+        Claims.Reset();
         Claims.SetRange("Source No.", SalesHeader."No.");
         if Claims.FindSet(true) then
             repeat
@@ -145,8 +129,4 @@ codeunit 50321 "Sales Management"
                 Claims.Modify();
             until Claims.Next() = 0;
     end;
-
-    var
-        NoReclamationErr: Label 'You must enter the information about the claim', Comment = 'ESP="Debe introducir la informacion sobre la reclamación",PTG="Deve introduzir as informações sobre a reclamação"';
-
 }
